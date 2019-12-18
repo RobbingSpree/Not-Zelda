@@ -13,7 +13,9 @@ ani_spd=10;
 
 walk_spr = lionk;
 push_spr = link_push;
+pushee=noone;
 lift_spr = link_carry;
+mask_index=lionk;
 move=true;
 lift=true;
 

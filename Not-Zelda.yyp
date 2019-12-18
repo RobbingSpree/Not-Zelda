@@ -191,6 +191,14 @@
             }
         },
         {
+            "Key": "4ccb8d4c-96b5-4207-b45c-d996ecddfc8c",
+            "Value": {
+                "id": "0b6d766f-2474-480e-8946-25aefc427677",
+                "resourcePath": "scripts\\slide_object\\slide_object.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "50038601-4aa2-47bf-acc0-741ec7d76e23",
             "Value": {
                 "id": "22cbc447-9060-420a-8fd6-e75aad89b63a",
@@ -426,7 +434,7 @@
             "Key": "c1e14e3d-f08f-4e20-8334-2300a9ff66fd",
             "Value": {
                 "id": "621cf440-6044-40d1-a952-700a33dbfe51",
-                "resourcePath": "rooms\\room0\\room0.yy",
+                "resourcePath": "rooms\\Room0\\Room0.yy",
                 "resourceType": "GMRoom"
             }
         },
@@ -536,7 +544,8 @@
         }
     ],
     "script_order": [
-        "db43fc1a-5a25-4d0d-bb78-71c1938786f5"
+        "db43fc1a-5a25-4d0d-bb78-71c1938786f5",
+        "4ccb8d4c-96b5-4207-b45c-d996ecddfc8c"
     ],
     "tutorial": ""
 }
