@@ -5,10 +5,12 @@ var _r = keyboard_check(vk_right);
 var _d = keyboard_check(vk_down);
 var _u = keyboard_check(vk_up);
 
+var xstop = 0;
+var ystop = 0;
 //debug
 //h-=keyboard_check_pressed(vk_control);
 
-if state == "idle" || state == "walking"
+if state == "idle" || state == "walking" || state == "pushing" 
 {
 	sprite_index = walk_spr;
 	if _r || _l || _u || _d
@@ -27,6 +29,11 @@ if state == "idle" || state == "walking"
 				else
 					image_xscale=1;
 			ani=0;
+			if state == "pushing"
+				if wlk_cycle==0
+					wlk_cycle=1;
+				else
+					wlk_cycle=0;
 		}
 		state="walking";
 	} else 
@@ -56,19 +63,20 @@ if state == "idle" || state == "walking"
 	last_face=facing;
 
 	//check for collisions
-	var hbox = place_meeting(x+(_r-_l)*wlk_spd,y,box);
-	if hbox != -4
+	if place_meeting(x+(_r-_l)*wlk_spd,y,box)
 	{
-		//change to pushing
+		xstop = ((_r-_l)*wlk_spd);
 		sprite_index=push_spr;
-	}
-	var vbox = place_meeting(x,y+(_d-_u)*wlk_spd,box);
-	if vbox != -4
+		image_index=7+wlk_cycle;
+		state="pushing";
+	} else if place_meeting(x,y+(_d-_u)*wlk_spd,box)
 	{
-		//change to pushing
+		ystop = ((_d-_u)*wlk_spd);
 		sprite_index=push_spr;
+		image_index = 4 -(_d*3)+wlk_cycle;
+		state="pushing";
 	}
 }
 //move player
-x+=(_r-_l)*wlk_spd;
-y+=(_d-_u)*wlk_spd;
+x+=(_r-_l)*wlk_spd-xstop;
+y+=(_d-_u)*wlk_spd-ystop;
