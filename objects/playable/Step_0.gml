@@ -4,19 +4,23 @@ var _l = keyboard_check(vk_left);
 var _r = keyboard_check(vk_right);
 var _d = keyboard_check(vk_down);
 var _u = keyboard_check(vk_up);
-
+var xstop=0;
+var ystop=0;
 //debug
 //h-=keyboard_check_pressed(vk_control);
 
-if state == "idle" || state == "walking"
+if state == "idle" || state == "walking" || state == "pushing"
 {
 	sprite_index = walk_spr;
 	if _r || _l || _u || _d
 	{
-		ani +=1;
+		if state=="pushing"
+			ani+=0.5;
+		else
+			ani +=1;
 		if ani == ani_spd
 		{
-			if facing >=2
+			if facing >=2 || state=="pushing"
 				if wlk_cycle==0
 					wlk_cycle=1;
 				else
@@ -28,10 +32,13 @@ if state == "idle" || state == "walking"
 					image_xscale=1;
 			ani=0;
 		}
-		state="walking";
-	} else 
-		state="idle";
 
+		state="walking";
+	} else {
+		state="idle";
+		image_index=facing;
+	}
+	
 	if facing != last_face
 	{
 		image_xscale=1;
@@ -56,19 +63,32 @@ if state == "idle" || state == "walking"
 	last_face=facing;
 
 	//check for collisions
-	var hbox = place_meeting(x+(_r-_l)*wlk_spd,y,box);
-	if hbox != -4
+	if place_meeting(x+(_r-_l)*wlk_spd,y,box) || place_meeting(x+(_r-_l)*wlk_spd,y,playable) && (_r||_l)
 	{
 		//change to pushing
 		sprite_index=push_spr;
+		image_index=7+wlk_cycle;
+		xstop=(_r-_l)*wlk_spd;
+		state="pushing";
+		var pushee = collision_point(x+(_r-_l)*wlk_spd,y,box,false,true);
+		if pushee != noone && pushee.move == true
+		{
+			pushee.x+=(_r-_l)*wlk_spd;
+		}
+		{
+			//move the object 16 px away
+		}
 	}
-	var vbox = place_meeting(x,y+(_d-_u)*wlk_spd,box);
-	if vbox != -4
+
+	if place_meeting(x,y+(_d-_u)*wlk_spd,box) || place_meeting(x,y+(_d-_u)*wlk_spd,playable) && (_d||_u)
 	{
 		//change to pushing
 		sprite_index=push_spr;
+		image_index=1+(_u*3)+wlk_cycle;
+		ystop=(_d-_u)*wlk_spd;
+		state="pushing";
 	}
 }
 //move player
-x+=(_r-_l)*wlk_spd;
-y+=(_d-_u)*wlk_spd;
+x+=(_r-_l)*wlk_spd-xstop;
+y+=(_d-_u)*wlk_spd-ystop;
