@@ -8,44 +8,51 @@ var xstop=0;
 var ystop=0;
 //debug
 //h-=keyboard_check_pressed(vk_control);
-
-if state == "idle" || state == "walking" || state == "pushing"
+if state == "idle"
 {
+	if _r || _l || _u || _d //read input
+		state = "walking";
+}
+
+
+if state == "walking"
+{
+	state = "idle";
 	sprite_index = walk_spr;
-	if _r || _l || _u || _d
+	
+	#region Input
+	if _r || _l || _u || _d //read input
 	{
-		if state=="pushing"
-			ani+=0.5;
-		else
-			ani +=1;
-		if ani == ani_spd
+		state="walking";
+		ani +=1;
+		if ani == ani_spd //allow game to run at a higher speed than the animation
 		{
-			if facing >=2 || state=="pushing"
+			//update animation
+			if facing >=2 //left or right
 				if wlk_cycle==0
 					wlk_cycle=1;
 				else
 					wlk_cycle=0;
-			else
+			else //up or down
 				if image_xscale==1
 					image_xscale=-1;
 				else
 					image_xscale=1;
 			ani=0;
 		}
-
-		state="walking";
-	} else {
-		state="idle";
-		image_index=facing;
-	}
+		//check for collisions
+		adjacent = update_adjacents(adjacent);
+	} 
+	#endregion
 	
+	#region Sprite update
 	if facing != last_face
 	{
 		image_xscale=1;
 		wlk_cycle=0;
 	}
 
-	if _l || _r
+	if _l || _r 
 	{
 		facing=3-_r;
 		if !_u && !_d
@@ -55,7 +62,7 @@ if state == "idle" || state == "walking" || state == "pushing"
 		if _l
 			image_xscale=1;
 	}
-	if _u || _d
+	if _u || _d 
 	{
 		facing=1-_d;	
 		image_index=facing;
@@ -63,13 +70,30 @@ if state == "idle" || state == "walking" || state == "pushing"
 	last_face=facing;
 
 	//check for collisions
-	//pushee = noone;
+	
+	if state == "idle"
+	{
+		image_index=facing;
+	}
+	#endregion
+	
+	#region Collision and movement
+	
+	if adjacent[facing,2] > wlk_spd || adjacent[facing,2] == -1//moving unimpeded
+	{
+		x+=(_r-_l)*wlk_spd-xstop;
+		y+=(_d-_u)*wlk_spd-ystop;
+	}
+	
+	
+	#endregion
+	/*
 	if place_meeting(x+(_r-_l)*wlk_spd,y,box) || place_meeting(x+(_r-_l)*wlk_spd,y,playable) && (_r||_l)
 	{
 		//change to pushing
 		sprite_index=push_spr;
 		image_index=7+wlk_cycle;
-		xstop=(_r-_l)*wlk_spd;
+		//xstop=(_r-_l)*wlk_spd;
 		state="pushing";
 		pushee = instance_place(x+(_r-_l)*wlk_spd,y,box);
 		if pushee != noone && pushee.move == true
@@ -84,10 +108,30 @@ if state == "idle" || state == "walking" || state == "pushing"
 		//change to pushing
 		sprite_index=push_spr;
 		image_index=1+(_u*3)+wlk_cycle;
-		ystop=(_d-_u)*wlk_spd;
+		//ystop=(_d-_u)*wlk_spd;
 		state="pushing";
+		if pushee != noone && pushee.move == true
+		{
+			pushee.x+=(_r-_l)*wlk_spd;
+			//move the object 16 px away
+		}
 	}
+	*/
 }
 //move player
-x+=(_r-_l)*wlk_spd-xstop;
-y+=(_d-_u)*wlk_spd-ystop;
+/*
+if state!="pushing"
+{
+	x+=(_r-_l)*wlk_spd-xstop;
+	y+=(_d-_u)*wlk_spd-ystop;
+} else {
+	if facing mod 2
+	{
+		x+=sign(push_x_dest-x)*wlk_spd;
+	} else {
+		y+=sign(push_y_dest-y)*wlk_spd;
+	}
+	if x==push_x_dest && y==push_y_dest
+		state="idle";
+}
+*/
