@@ -18,7 +18,7 @@ if state == "idle" || state == "walking" || state == "pushing"
 			ani+=0.5;
 		else
 			ani +=1;
-		if ani == ani_spd
+		if ani >= ani_spd
 		{
 			if facing >=2 || state=="pushing"
 				if wlk_cycle==0
