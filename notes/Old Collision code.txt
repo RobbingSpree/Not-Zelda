@@ -1,0 +1,48 @@
+/*
+	if place_meeting(x+(_r-_l)*wlk_spd,y,box) || place_meeting(x+(_r-_l)*wlk_spd,y,playable) && (_r||_l)
+	{
+		//change to pushing
+		sprite_index=push_spr;
+		image_index=7+wlk_cycle;
+		//xstop=(_r-_l)*wlk_spd;
+		state="pushing";
+		pushee = instance_place(x+(_r-_l)*wlk_spd,y,box);
+		if pushee != noone && pushee.move == true
+		{
+			pushee.x+=(_r-_l)*wlk_spd;
+			//move the object 16 px away
+		}
+	}
+
+	if place_meeting(x,y+(_d-_u)*wlk_spd,box) || place_meeting(x,y+(_d-_u)*wlk_spd,playable) && (_d||_u)
+	{
+		//change to pushing
+		sprite_index=push_spr;
+		image_index=1+(_u*3)+wlk_cycle;
+		//ystop=(_d-_u)*wlk_spd;
+		state="pushing";
+		if pushee != noone && pushee.move == true
+		{
+			pushee.x+=(_r-_l)*wlk_spd;
+			//move the object 16 px away
+		}
+	}
+	*/
+	
+//move player
+/*
+if state!="pushing"
+{
+	x+=(_r-_l)*wlk_spd-xstop;
+	y+=(_d-_u)*wlk_spd-ystop;
+} else {
+	if facing mod 2
+	{
+		x+=sign(push_x_dest-x)*wlk_spd;
+	} else {
+		y+=sign(push_y_dest-y)*wlk_spd;
+	}
+	if x==push_x_dest && y==push_y_dest
+		state="idle";
+}
+*/	

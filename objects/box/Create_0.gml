@@ -3,3 +3,6 @@
 move=true;
 lift=true;
 in_use=false;
+
+push_x_dest=-1;
+push_y_dest=-1;

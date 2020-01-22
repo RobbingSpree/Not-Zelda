@@ -87,6 +87,22 @@
             }
         },
         {
+            "Key": "203f4d88-a8f7-4c4a-a0f7-70323c07524a",
+            "Value": {
+                "id": "193f39c5-14e1-40e8-9761-b54f1e2e5e26",
+                "resourcePath": "scripts\\update_adjacents\\update_adjacents.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "2309f949-b526-4b0d-85e9-ddfefe6ce316",
+            "Value": {
+                "id": "dbf7a698-66f9-4682-af21-98dfff567c69",
+                "resourcePath": "notes\\Old Collision code.yy",
+                "resourceType": "GMNotes"
+            }
+        },
+        {
             "Key": "23850190-b59a-41ad-8b3f-c6de7b74f619",
             "Value": {
                 "id": "3725a5b5-1df5-470a-85b6-8f839b7f8c23",
@@ -191,6 +207,14 @@
             }
         },
         {
+            "Key": "4ccb8d4c-96b5-4207-b45c-d996ecddfc8c",
+            "Value": {
+                "id": "0b6d766f-2474-480e-8946-25aefc427677",
+                "resourcePath": "scripts\\slide_object\\slide_object.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "50038601-4aa2-47bf-acc0-741ec7d76e23",
             "Value": {
                 "id": "22cbc447-9060-420a-8fd6-e75aad89b63a",
@@ -236,6 +260,14 @@
                 "id": "883df6d1-8ca5-4e12-ae77-ba67f44f4239",
                 "resourcePath": "views\\6721869a-0263-4741-925f-f25cb8b9db29.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "6e3d301b-ac81-4c14-9732-68a5ddbe646b",
+            "Value": {
+                "id": "884e7db9-c715-4dde-be98-9f5eb8aa382a",
+                "resourcePath": "scripts\\push_space_free\\push_space_free.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -415,6 +447,14 @@
             }
         },
         {
+            "Key": "bd961001-15e4-4144-b708-1e34accf5694",
+            "Value": {
+                "id": "2e71a07c-be5f-4e38-9c7a-c689948ad0d6",
+                "resourcePath": "scripts\\sliding\\sliding.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "c13f53b4-0279-40cc-8f97-7e4bf5010b68",
             "Value": {
                 "id": "99fc55c3-dc26-4699-96d1-efaab31b1cd0",
@@ -536,7 +576,11 @@
         }
     ],
     "script_order": [
-        "db43fc1a-5a25-4d0d-bb78-71c1938786f5"
+        "db43fc1a-5a25-4d0d-bb78-71c1938786f5",
+        "4ccb8d4c-96b5-4207-b45c-d996ecddfc8c",
+        "203f4d88-a8f7-4c4a-a0f7-70323c07524a",
+        "6e3d301b-ac81-4c14-9732-68a5ddbe646b",
+        "bd961001-15e4-4144-b708-1e34accf5694"
     ],
     "tutorial": ""
 }
