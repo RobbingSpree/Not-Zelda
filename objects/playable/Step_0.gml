@@ -94,8 +94,8 @@ if state == "walking"
 			{
 				case 0: image_index = 0; break;
 				case 1: image_index = 3; break;
-				case 2: image_index = 7; image_xscale=-1; break;
-				case 3: image_index = 7; image_xscale=1; break;
+				case 2: image_index = 6; image_xscale=-1; break;
+				case 3: image_index = 6; image_xscale=1; break;
 			}
 		ani=0;
 	}
@@ -160,8 +160,8 @@ if state == "pushing"
 			{
 				case 0: image_index = 0+wlk_cycle; break;
 				case 1: image_index = 3+wlk_cycle; break;
-				case 2: image_index = 7+wlk_cycle; image_xscale=-1; break;
-				case 3: image_index = 7+wlk_cycle; image_xscale=1; break;
+				case 2: image_index = 6+wlk_cycle; image_xscale=-1; break;
+				case 3: image_index = 6+wlk_cycle; image_xscale=1; break;
 			}
 			ani=0;
 		}
