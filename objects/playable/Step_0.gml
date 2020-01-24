@@ -4,15 +4,26 @@ var _l = keyboard_check(vk_left);
 var _r = keyboard_check(vk_right);
 var _d = keyboard_check(vk_down);
 var _u = keyboard_check(vk_up);
+var _a = keyboard_check(ord("Z"));
+var _b = keyboard_check(ord("X"));
 var xstop=0;
 var ystop=0;
 //debug
 if keyboard_check_pressed(vk_control) slide_object(self,facing);
 
+if state == "camera"
+{
+	//if the camera is moving lock controls until it's done
+	//if player_controller.state == "follow"
+		//state="idle";
+}
+
 if state == "idle"
 {
 	if _r || _l || _u || _d //read input
 		state = "walking";
+	if _a || _b	
+		state = "action";
 }
 
 
@@ -82,14 +93,13 @@ if state == "walking"
 	var free = push_space_free(facing)
 	if action_buildup>action_threshold && free && state != "pushing"
 	{
-		//if adjacent[facing,1] == box //if running into box for last 16 frames
+		if adjacent[facing,1] != noone && adjacent[facing,1].move==true //if running into a moveable object for last 16 frames
 		{
 			slide_object(self,facing);
 			slide_object(adjacent[facing,1],facing);
 			pushee=adjacent[facing,1];
 			state = "pushing";
-		} 
-		sprite_index = push_spr;
+			sprite_index = push_spr;
 		switch facing
 			{
 				case 0: image_index = 0; break;
@@ -98,6 +108,8 @@ if state == "walking"
 				case 3: image_index = 6; image_xscale=1; break;
 			}
 		ani=0;
+		} 
+		
 	}
 	if !free 
 		action_buildup=0;
@@ -120,6 +132,11 @@ if state == "walking"
 	
 	#endregion
 	
+}
+
+if state == "action"
+{
+	state="idle";
 }
 
 if state == "pushing"

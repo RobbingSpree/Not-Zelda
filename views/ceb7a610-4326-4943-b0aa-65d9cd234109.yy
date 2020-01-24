@@ -6,7 +6,8 @@
     "children": [
         "d1323406-82a9-44b8-96f2-23c0879ac674",
         "bc3849a8-b5f7-405b-860b-ce9cd683a7b8",
-        "50038601-4aa2-47bf-acc0-741ec7d76e23"
+        "50038601-4aa2-47bf-acc0-741ec7d76e23",
+        "571b8b02-09e7-4ab6-a468-1ff050c61d71"
     ],
     "filterType": "GMSprite",
     "folderName": "naru",

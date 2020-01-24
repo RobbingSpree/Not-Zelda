@@ -6,7 +6,8 @@
     "children": [
         "e5e275c7-72bf-49e6-b9d8-fb6f3dfb3d67",
         "7d2714c0-00b3-4fa1-aa1c-3378d545606d",
-        "771e32d4-100e-46d1-b1e9-e3da71c57419"
+        "771e32d4-100e-46d1-b1e9-e3da71c57419",
+        "f083ab00-4ec6-4421-90e3-b54fc5101bfe"
     ],
     "filterType": "GMSprite",
     "folderName": "zelda",
