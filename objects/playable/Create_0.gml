@@ -12,12 +12,13 @@ wlk_cycle=1;
 facing=0; //facing 0down 1up 2left 3right
 last_face=0;
 ani=0;
-ani_spd=10;
+ani_spd=15;
 action_buildup = 0;
 action_threshold = 15;
 
 //action variables
-
+control_lock = 0;
+camera_move = true;
 
 //collision details
 adjacent = [];
@@ -29,6 +30,8 @@ walk_spr = lionk;
 push_spr = link_push;
 pushee=noone;
 lift_spr = link_carry;
+action_a_spr = link_fall;
+action_b_spr = link_fall;
 mask_index=lionk;
 
 //physics flags

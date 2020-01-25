@@ -3,6 +3,7 @@
 draw_self();
 
 //debug
+//draw_text(x,y-40,control_lock);
 /*
 draw_set_halign(fa_center);
 if action_buildup>action_threshold

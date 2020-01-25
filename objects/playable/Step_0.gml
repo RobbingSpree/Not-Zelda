@@ -4,26 +4,47 @@ var _l = keyboard_check(vk_left);
 var _r = keyboard_check(vk_right);
 var _d = keyboard_check(vk_down);
 var _u = keyboard_check(vk_up);
-var _a = keyboard_check(ord("Z"));
-var _b = keyboard_check(ord("X"));
+var _a = keyboard_check_pressed(ord("Z"));
+var _b = keyboard_check_pressed(ord("X"));
 var xstop=0;
 var ystop=0;
 //debug
 if keyboard_check_pressed(vk_control) slide_object(self,facing);
 
-if state == "camera"
+if control_lock > 0
 {
-	//if the camera is moving lock controls until it's done
-	//if player_controller.state == "follow"
-		//state="idle";
+	control_lock -=1;
+	if camera_move
+	{
+		var _spd = 0.5;
+		switch facing
+		{
+			case 0: y-=_spd; break;
+			case 1: y+=_spd; break;
+			case 2: x+=_spd; break;
+			case 3: x-=_spd; break;
+		}
+	}
 }
+if control_lock < 0
+	control_lock = 0;
 
 if state == "idle"
 {
-	if _r || _l || _u || _d //read input
-		state = "walking";
-	if _a || _b	
-		state = "action";
+	if control_lock == 0
+	{
+		camera_move = false;
+		if _r || _l || _u || _d //read input
+			state = "walking";
+		if _a || _b	
+		{
+			state = "action";
+			if _b
+				sprite_index = action_b_spr;
+			if _a
+				sprite_index = action_a_spr;
+		}
+	}
 }
 
 
@@ -136,7 +157,22 @@ if state == "walking"
 
 if state == "action"
 {
-	state="idle";
+	//end animation and move back to idle 
+	if image_index >= image_number -1
+	{
+		state = "idle";
+		sprite_index=walk_spr;
+		image_index=facing;
+	}
+	
+	#region Animate
+		ani +=1;
+		if ani == ani_spd //allow game to run at a higher speed than the animation
+		{
+			ani=0;
+			image_index+=1;
+		}
+		#endregion
 }
 
 if state == "pushing"

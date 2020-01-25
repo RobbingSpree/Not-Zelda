@@ -24,7 +24,7 @@ players[4,0]=princess;
 players[4,1]=true;
 players[4,2]=false;
 
-spd=5;
+spd=10;
 view_camera[0] = camera_create_view(0,0,160,160,0,-1,-1,-1,0,0);
-
-state = "follow";
+steps = 2;
+debug = steps;
