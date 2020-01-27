@@ -2,6 +2,11 @@
 
 draw_self();
 
+if state == "action"
+{
+	
+}
+
 //debug
 //draw_text(x,y-40,control_lock);
 /*

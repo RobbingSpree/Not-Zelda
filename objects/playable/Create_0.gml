@@ -30,8 +30,11 @@ walk_spr = lionk;
 push_spr = link_push;
 pushee=noone;
 lift_spr = link_carry;
-action_a_spr = link_fall;
-action_b_spr = link_fall;
+action_a_spr = link_equip_action;
+action_b_spr = link_equip_action;
+equip_a = "sword";
+equip_b = "sword";
+
 mask_index=lionk;
 
 //physics flags

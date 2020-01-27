@@ -166,13 +166,28 @@ if state == "action"
 	}
 	
 	#region Animate
-		ani +=1;
-		if ani == ani_spd //allow game to run at a higher speed than the animation
+	ani +=1;
+	if ani == ani_spd //allow game to run at a higher speed than the animation
+	{
+		ani=0;
+		image_index+=1;
+	}
+	if _b //prioritize B presses over A
+	{
+		if equip_b == "sword"
 		{
-			ani=0;
-			image_index+=1;
+			sprite_index=link_equip_action;
+			
 		}
-		#endregion
+		
+	} else if _a
+	{
+		if equip_a == "sword"
+		{
+			sprite_index=link_equip_action;
+		}
+	}
+	#endregion
 }
 
 if state == "pushing"
