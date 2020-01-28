@@ -4,7 +4,7 @@ draw_self();
 
 if state == "action"
 {
-	
+	draw_text(x,y-40,steps);
 }
 
 //debug

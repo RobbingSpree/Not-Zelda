@@ -158,33 +158,48 @@ if state == "walking"
 if state == "action"
 {
 	//end animation and move back to idle 
-	if image_index >= image_number -1
+	if steps == steps_end
 	{
 		state = "idle";
+		steps=0;
+		wlk_cycle=0;
 		sprite_index=walk_spr;
-		image_index=facing;
+		image_index=facing; 
 	}
 	
 	#region Animate
 	ani +=1;
 	if ani == ani_spd //allow game to run at a higher speed than the animation
 	{
+		steps+=1;
 		ani=0;
-		image_index+=1;
+		wlk_cycle+=1;
 	}
 	if _b //prioritize B presses over A
 	{
 		if equip_b == "sword"
 		{
 			sprite_index=link_equip_action;
-			
+			switch facing
+			{
+				case 0: image_index = 0+wlk_cycle; break;
+				case 1: image_index = 2+wlk_cycle; break;
+				case 2: image_index = 4+wlk_cycle; image_xscale=-1; break;
+				case 3: image_index = 4+wlk_cycle; image_xscale=1; break;
+			}
 		}
-		
 	} else if _a
 	{
 		if equip_a == "sword"
 		{
 			sprite_index=link_equip_action;
+			switch facing
+			{
+				case 0: image_index = 0+steps; break;
+				case 1: image_index = 2+steps; break;
+				case 2: image_index = 4+steps; image_xscale=-1; break;
+				case 3: image_index = 4+steps; image_xscale=1; break;
+			}
 		}
 	}
 	#endregion

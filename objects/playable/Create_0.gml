@@ -19,6 +19,8 @@ action_threshold = 15;
 //action variables
 control_lock = 0;
 camera_move = true;
+steps=0;
+steps_end = 2;
 
 //collision details
 adjacent = [];
