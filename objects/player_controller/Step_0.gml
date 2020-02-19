@@ -1,7 +1,12 @@
 /// @description follow current player
 
 var change = keyboard_check_pressed(vk_space);
-
+if first_frame 
+{
+	x=(players[target,0].x div camera_get_view_width(view_camera[0]))*camera_get_view_width(view_camera[0]);
+	y=(players[target,0].y div camera_get_view_height(view_camera[0]))*camera_get_view_height(view_camera[0]);
+	first_frame=false;
+}
 
 if change  && players[target,0].state == "idle"
 {

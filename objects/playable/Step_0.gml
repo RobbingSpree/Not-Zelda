@@ -19,8 +19,8 @@ if control_lock > 0
 		var _spd = 0.5;
 		switch facing
 		{
-			case 0: y-=_spd; break;
-			case 1: y+=_spd; break;
+			case 0: y+=_spd; break;
+			case 1: y-=_spd; break;
 			case 2: x+=_spd; break;
 			case 3: x-=_spd; break;
 		}
