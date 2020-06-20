@@ -287,6 +287,14 @@
             }
         },
         {
+            "Key": "600f7ab2-56db-4b7e-b9c0-825d53355f4e",
+            "Value": {
+                "id": "dc13dedc-22e6-47f7-a2ec-bcd48f064ac8",
+                "resourcePath": "rooms\\Invintory\\Invintory.yy",
+                "resourceType": "GMRoom"
+            }
+        },
+        {
             "Key": "609263b2-ca30-4d91-a478-050dc35f3b46",
             "Value": {
                 "id": "faf6bbd1-398f-469f-8697-027ecb495f8e",
