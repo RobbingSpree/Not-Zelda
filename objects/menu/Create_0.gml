@@ -11,7 +11,7 @@ menu_screen = "invintory";
 
 i = []; //invintory list
 for (var j=0; j<8; j++)
-	for (var k=0; k<8; k++)
+	for (var k=0; k<6; k++)
 	{
 		i[j,k] = item.none;
 	}

@@ -6,10 +6,10 @@ if show == true
 	image_index = 0;
 	draw_self();
 	var start_x = x+16;
-	var start_y = y+36;
+	var start_y = y+52;
 	
 	for (var j=0; j<8; j++)
-		for (var k=0; k<8; k++)
+		for (var k=0; k<6; k++)
 		{
 			var cont = i[j,k];
 			if cont != item.none

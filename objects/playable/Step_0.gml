@@ -65,8 +65,8 @@ if state == "menu"
 	if menu.invin_x > 7
 		menu.invin_x = 0;
 	if menu.invin_y < 0
-		menu.invin_y = 7;
-	if menu.invin_y > 7
+		menu.invin_y = 5;
+	if menu.invin_y > 5
 		menu.invin_y = 0;
 	//bind input to changes
 	if _a

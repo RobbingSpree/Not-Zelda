@@ -29,6 +29,7 @@ steps_end = 2;
 adjacent = [];
 push_x_dest=-1;
 push_y_dest=-1;
+lifting=noone;
 
 //animation defaults
 walk_spr = lionk;
