@@ -15,6 +15,9 @@ ani=0;
 ani_spd=15;
 action_buildup = 0;
 action_threshold = 15;
+action_comedown = 0;
+action_timers=[];
+action_timer_setup();
 
 //action variables
 control_lock = 0;

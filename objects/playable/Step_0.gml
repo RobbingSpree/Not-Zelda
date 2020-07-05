@@ -4,12 +4,17 @@ var _l = keyboard_check(vk_left);
 var _r = keyboard_check(vk_right);
 var _d = keyboard_check(vk_down);
 var _u = keyboard_check(vk_up);
+var _ml = keyboard_check_pressed(vk_left);
+var _mr = keyboard_check_pressed(vk_right);
+var _md = keyboard_check_pressed(vk_down);
+var _mu = keyboard_check_pressed(vk_up);
 var _a = keyboard_check_pressed(ord("Z"));
 var _b = keyboard_check_pressed(ord("X"));
+var _pause = keyboard_check_pressed(vk_enter);
 var xstop=0;
 var ystop=0;
 //debug
-if keyboard_check_pressed(vk_control) slide_object(self,facing);
+//if keyboard_check_pressed(vk_control) slide_object(self,facing);
 
 if control_lock > 0
 {
@@ -28,6 +33,54 @@ if control_lock > 0
 }
 if control_lock < 0
 	control_lock = 0;
+
+if _pause
+{
+	if state == "menu"
+	{
+		state = "idle";
+		menu.show = false;
+	} else
+	{
+		state = "menu";
+		menu.show = true;
+	}
+}
+
+#region Menu controller
+if state == "menu"
+{
+	//detect input
+	if _ml
+		menu.invin_x -= 1;
+	if _mr
+		menu.invin_x += 1;
+	if _mu
+		menu.invin_y -= 1;
+	if _md
+		menu.invin_y += 1;
+	//fix wrap around
+	if menu.invin_x < 0
+		menu.invin_x = 7;
+	if menu.invin_x > 7
+		menu.invin_x = 0;
+	if menu.invin_y < 0
+		menu.invin_y = 7;
+	if menu.invin_y > 7
+		menu.invin_y = 0;
+	//bind input to changes
+	if _a
+	{
+		equip_a = menu.i[menu.invin_x,menu.invin_y];
+		menu.e[player_index-1,0] = equip_a;
+	}
+	if _b
+	{
+		equip_b = menu.i[menu.invin_x,menu.invin_y];
+		menu.e[player_index-1,1] = equip_b;
+	}
+}
+#endregion
 
 if state == "idle"
 {
@@ -251,3 +304,30 @@ if state == "pushing"
 		#endregion
 	}
 }
+
+if state == "pickup"
+{
+	//check is animation is over
+	action_comedown++;
+	if action_comedown>=action_timers[item.power_b]
+	{
+		state = "idle";
+		action_comedown=0;
+	}
+	//do logic
+	
+}
+
+if state == "swing_sword"
+{
+	//check is animation is over
+	action_comedown++;
+	if action_comedown>=action_timers[item.sword]
+	{
+		state = "idle";
+		action_comedown=0;
+	}
+	//do logic
+	
+}
+
