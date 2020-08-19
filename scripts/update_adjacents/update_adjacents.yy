@@ -1,8 +1,12 @@
 {
-    "id": "203f4d88-a8f7-4c4a-a0f7-70323c07524a",
-    "modelName": "GMScript",
-    "mvc": "1.0",
-    "name": "update_adjacents",
-    "IsCompatibility": false,
-    "IsDnD": false
+  "isDnD": false,
+  "isCompatibility": false,
+  "parent": {
+    "name": "Scripts",
+    "path": "folders/Scripts.yy",
+  },
+  "resourceVersion": "1.0",
+  "name": "update_adjacents",
+  "tags": [],
+  "resourceType": "GMScript",
 }

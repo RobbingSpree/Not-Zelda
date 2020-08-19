@@ -1,20 +1,25 @@
-var item_ = argument0; //interger for item enum
-var player = argument1; //object refrence
+function item_use(argument0, argument1) {
+	var item_ = argument0; //interger for item enum
+	var player = argument1; //object refrence
 
-if item_ == item.none
-{
-	return;
+	if item_ == item.none
+	{
+		return;
+	}
+
+	if item_ == item.sword
+	{
+		player.state = "swing_sword";
+		return;
+	}
+
+	if item_ == item.power_b
+	{
+		player.state = "pickup";
+		return;
+	}
+
+
+
+
 }
-
-if item_ == item.sword
-{
-	player.state = "swing_sword";
-	return;
-}
-
-if item_ == item.power_b
-{
-	player.state = "pickup";
-	return;
-}
-

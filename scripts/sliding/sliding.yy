@@ -1,8 +1,12 @@
 {
-    "id": "bd961001-15e4-4144-b708-1e34accf5694",
-    "modelName": "GMScript",
-    "mvc": "1.0",
-    "name": "sliding",
-    "IsCompatibility": false,
-    "IsDnD": false
+  "isDnD": false,
+  "isCompatibility": false,
+  "parent": {
+    "name": "Scripts",
+    "path": "folders/Scripts.yy",
+  },
+  "resourceVersion": "1.0",
+  "name": "sliding",
+  "tags": [],
+  "resourceType": "GMScript",
 }
