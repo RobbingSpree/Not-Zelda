@@ -30,6 +30,7 @@ adjacent = [];
 push_x_dest=-1;
 push_y_dest=-1;
 lifting=noone;
+//tilemap = layer_tilemap_get_id("Ground_details");
 
 //animation defaults
 walk_spr = lionk;

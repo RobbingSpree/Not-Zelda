@@ -1,13 +1,13 @@
 /// @description update state and move character
 
-var _l = keyboard_check(vk_left);
-var _r = keyboard_check(vk_right);
-var _d = keyboard_check(vk_down);
-var _u = keyboard_check(vk_up);
-var _ml = keyboard_check_pressed(vk_left);
-var _mr = keyboard_check_pressed(vk_right);
-var _md = keyboard_check_pressed(vk_down);
-var _mu = keyboard_check_pressed(vk_up);
+var _l = keyboard_check(vk_left) || keyboard_check(ord("A"));
+var _r = keyboard_check(vk_right) || keyboard_check(ord("D"));
+var _d = keyboard_check(vk_down) || keyboard_check(ord("S"));
+var _u = keyboard_check(vk_up) || keyboard_check(ord("W"));
+var _ml = keyboard_check_pressed(vk_left) || keyboard_check_pressed(ord("A"));
+var _mr = keyboard_check_pressed(vk_right) || keyboard_check_pressed(ord("D"));
+var _md = keyboard_check_pressed(vk_down) || keyboard_check_pressed(ord("S"));
+var _mu = keyboard_check_pressed(vk_up) || keyboard_check_pressed(ord("W"));
 var _a = keyboard_check_pressed(ord("Z"));
 var _b = keyboard_check_pressed(ord("X"));
 var _pause = keyboard_check_pressed(vk_enter);
