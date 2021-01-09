@@ -1,11 +1,11 @@
-function sliding(argument0, argument1) {
+function sliding(obj, spd) {
 	//move an object 1 px toward destination
-	var obj = argument0;
+	//var obj = argument0;
 	var xx=obj.x;
 	var yy=obj.y;
 	var dx=obj.push_x_dest;
 	var dy=obj.push_y_dest;
-	var spd=argument1;
+	//var spd=argument1;
 
 	if xx==dx //either already at destination or moving vertically
 	{

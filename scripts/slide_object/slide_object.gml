@@ -1,8 +1,8 @@
 ///@description move an object 16 pixles either horrozontally or vertially
-function slide_object(argument0, argument1) {
+function slide_object(obj, dir) {
 
-	var obj = argument0; //object to move
-	var dir = argument1; //direction to move
+	//var obj = argument0; //object to move
+	//var dir = argument1; //direction to move
 
 	var unit=16;
 	var x_dir=0;

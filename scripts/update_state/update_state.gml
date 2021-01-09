@@ -1,5 +1,5 @@
-function update_state(argument0) {
-	var playing = argument0;
+function update_state(playing) {
+	//var playing = argument0;
 
 	sword.state="absent";
 	dancer.state="absent";

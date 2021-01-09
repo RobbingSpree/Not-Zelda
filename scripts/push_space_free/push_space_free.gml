@@ -1,7 +1,7 @@
-function push_space_free(argument0) {
+function push_space_free(dir) {
 	//check 2 grid spaces ahead of the player for obsticles
 	//return true for free space and flase for occupied space
-	var dir = argument0;
+	//var dir = argument0;
 
 	if adjacent[facing,1] != noone
 	{

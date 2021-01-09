@@ -9,13 +9,14 @@ if state == "action"
 
 //debug
 //draw_text(x,y-40,control_lock);
-/*
+
 draw_set_halign(fa_center);
 if action_buildup>action_threshold
 	draw_set_colour(c_red);
 draw_text(x,y-40,action_buildup);
 draw_set_halign(fa_left);
 draw_set_color(c_white);
+
 /*
 if state == "pushing"
 {
@@ -27,8 +28,10 @@ if state == "pushing"
 	draw_line(x,y,push_x_dest,push_y_dest);
 	draw_set_color(c_white);
 }
-//collision debug
+*/
 /*
+//collision debug
+
 
 var offset = 8;
 draw_text(x-offset,y,adjacent[3,2]);
@@ -41,4 +44,3 @@ for (i=0; i<4; i++)
 	if adjacent[i,1] != noone
 		draw_line(x,y,adjacent[i,1].x,adjacent[i,1].y);
 }
-*/

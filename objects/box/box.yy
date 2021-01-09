@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "jar_spr",
-    "path": "sprites/jar_spr/jar_spr.yy",
+    "name": "throwables",
+    "path": "sprites/throwables/throwables.yy",
   },
   "solid": false,
   "visible": true,

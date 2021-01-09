@@ -1,6 +1,6 @@
-function item_use(argument0, argument1) {
-	var item_ = argument0; //interger for item enum
-	var player = argument1; //object refrence
+function item_use(item_, player) {
+	//var item_ = argument0; //interger for item enum
+	//var player = argument1; //object refrence
 
 	if item_ == item.none
 	{
