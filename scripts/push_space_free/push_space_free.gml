@@ -7,12 +7,12 @@ function push_space_free(dir) {
 	{
 		switch dir
 		{
-			//case 0: if !place_meeting(x,y+unit*2,box) return true; break;
-			case 0: if !place_meeting(x,adjacent[facing,1].y+unit,box) return true; break;
+			case 0: if !place_meeting(x,y+unit*2,box) return true; break;
+			//case 0: if !place_meeting(x,adjacent[facing,1].y+unit+1,box) return true; break;
 			//case 1: if !place_meeting(x,y-unit*2,box) return true; break;
 			case 1: if !place_meeting(x,adjacent[facing,1].y-unit,box) return true; break;
-			//case 2: if !place_meeting(x+unit*2,y,box) return true; break;
-			case 2: if !place_meeting(adjacent[facing,1].x+unit,y,box) return true; break;
+			case 2: if !place_meeting(x+unit*2,y,box) return true; break;
+			//case 2: if !place_meeting(adjacent[facing,1].x+unit+1,y,box) return true; break;
 			//case 3: if !place_meeting(x-unit*2,y,box) return true; break;
 			case 3: if !place_meeting(adjacent[facing,1].x-unit,y,box) return true; break;
 		}

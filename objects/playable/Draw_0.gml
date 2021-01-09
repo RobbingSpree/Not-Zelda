@@ -1,7 +1,13 @@
 /// @description draw the character and debug values
-
+//debug
+/*
+draw_set_color(c_red);
+draw_rectangle(last_valid_x,last_valid_y,last_valid_x+16,last_valid_y+16,false);
+draw_set_color(-1);
+*/
 draw_self();
 
+/*
 if state == "action"
 {
 	draw_text(x,y-40,steps);
@@ -9,11 +15,12 @@ if state == "action"
 
 //debug
 //draw_text(x,y-40,control_lock);
-
+/*
 draw_set_halign(fa_center);
 if action_buildup>action_threshold
 	draw_set_colour(c_red);
-draw_text(x,y-40,action_buildup);
+draw_text(x,y-40,last_valid_x);
+draw_text(x,y+10,last_valid_y);
 draw_set_halign(fa_left);
 draw_set_color(c_white);
 

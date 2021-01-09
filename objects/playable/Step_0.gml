@@ -11,8 +11,15 @@ var _mu = keyboard_check_pressed(vk_up) || keyboard_check_pressed(ord("W"));
 var _a = keyboard_check_pressed(ord("Z"));
 var _b = keyboard_check_pressed(ord("X"));
 var _pause = keyboard_check_pressed(vk_enter);
-var xstop=0;
-var ystop=0;
+var xslide=0;
+var yslide=0;
+
+//check for nearby holes
+var closest_hole = instance_nearest(x,y,hole);
+if closest_hole != noone && distance_to_object(closest_hole) < 4 {
+	xslide = lengthdir_x(distance_to_object(closest_hole)/2,point_direction(x,y,closest_hole.x,closest_hole.y));
+}
+
 //debug
 //if keyboard_check_pressed(vk_control) slide_object(self,facing);
 
@@ -195,11 +202,19 @@ if state == "walking"
 	{
 		if facing < 2 && (_r || _l) //if moving diagonally
 			{if (adjacent[3,2] > wlk_spd && _l) || (adjacent[2,2] > wlk_spd && _r)
-				x+=(_r-_l)*wlk_spd-xstop;
+				x+=(_r-_l)*wlk_spd+xslide;
 			} else 
-				x+=(_r-_l)*wlk_spd-xstop;
-		y+=(_d-_u)*wlk_spd-ystop;
+				x+=(_r-_l)*wlk_spd+xslide;
+		y+=(_d-_u)*wlk_spd+yslide;
 		action_buildup=0;
+		
+		//update last valid square
+		var next_valid_x = ((floor(x/16))*16);
+		var next_valid_y = ((floor(y/16))*16);
+		if !position_meeting(next_valid_x,next_valid_y,hole) { //check if next cell has a hazzard in it
+			last_valid_x = next_valid_x;
+			last_valid_y = next_valid_y;
+		}
 	} else {
 		action_buildup+=1;
 	}

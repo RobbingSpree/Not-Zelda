@@ -58,6 +58,7 @@
     {"id":{"name":"princess","path":"objects/princess/princess.yy",},"order":4,},
     {"id":{"name":"player_controller","path":"objects/player_controller/player_controller.yy",},"order":5,},
     {"id":{"name":"wall","path":"objects/wall/wall.yy",},"order":2,},
+    {"id":{"name":"round_n","path":"scripts/round_n/round_n.yy",},"order":7,},
     {"id":{"name":"npc","path":"objects/npc/npc.yy",},"order":3,},
     {"id":{"name":"trapped_player","path":"objects/trapped_player/trapped_player.yy",},"order":4,},
     {"id":{"name":"menu","path":"objects/menu/menu.yy",},"order":5,},

@@ -24,6 +24,8 @@ control_lock = 0;
 camera_move = true;
 steps=0;
 steps_end = 2;
+last_valid_x = 0;
+last_valid_y = 0;
 
 //collision details
 adjacent = [];
