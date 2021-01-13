@@ -15,7 +15,7 @@ var xslide=0;
 var yslide=0;
 
 //check for nearby holes
-closest_hole = instance_nearest(x,y,hole);
+closest_hole = instance_nth_nearest(x,y,hole,1);
 cell_mod_x = x mod 16;
 cell_mod_y = y mod 16;
 var x_edge = false;
