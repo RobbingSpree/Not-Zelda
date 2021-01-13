@@ -49,6 +49,9 @@ mask_index=lionk;
 //physics flags
 move=true;
 lift=true;
+cell_mod_x = 0;
+cell_mod_y = 0;
+closest_hole = noone;
 
 //set up adjacency tabel
 for (var i=0; i<4; i++)

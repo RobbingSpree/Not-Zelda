@@ -12,9 +12,15 @@ if state == "action"
 {
 	draw_text(x,y-40,steps);
 }
+*/
 
 //debug
-//draw_text(x,y-40,control_lock);
+draw_text(x,y-40,cell_mod_x);
+draw_text(x,y-50,cell_mod_y);
+if closest_hole != noone {
+	draw_text(x,y-60,point_distance(x,y,closest_hole.x+8,closest_hole.y+8));
+	draw_line(x,y,closest_hole.x+8,closest_hole.y+8);
+}
 /*
 draw_set_halign(fa_center);
 if action_buildup>action_threshold

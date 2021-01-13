@@ -15,9 +15,23 @@ var xslide=0;
 var yslide=0;
 
 //check for nearby holes
-var closest_hole = instance_nearest(x,y,hole);
-if closest_hole != noone && distance_to_object(closest_hole) < 4 {
-	xslide = lengthdir_x(distance_to_object(closest_hole)/2,point_direction(x,y,closest_hole.x,closest_hole.y));
+closest_hole = instance_nearest(x,y,hole);
+cell_mod_x = x mod 16;
+cell_mod_y = y mod 16;
+var x_edge = false;
+var y_edge = false;
+if cell_mod_x <= 4 or cell_mod_x >= 12
+	x_edge = true;
+if cell_mod_y <= 4 or cell_mod_y >= 12
+	y_edge = true;
+if closest_hole != noone && point_distance(x,y,closest_hole.x+8,closest_hole.y+8) < 16 && (x_edge || y_edge){
+	//xslide = lengthdir_x(distance_to_object(closest_hole)/2,point_direction(x,y,closest_hole.x,closest_hole.y));
+	if x_edge {
+		xslide = sign(cell_mod_x-6)/2*-1;
+	}
+	if y_edge {
+		yslide = sign(cell_mod_y-6)/2*-1;		
+	}
 }
 
 //debug
@@ -104,6 +118,9 @@ if state == "idle"
 			if _a
 				sprite_index = action_a_spr;
 		}
+	} else if !_r && !_l && !_u && !_d {
+		x+= xslide;
+		y+= yslide;
 	}
 }
 
