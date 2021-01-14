@@ -24,8 +24,10 @@ control_lock = 0;
 camera_move = true;
 steps=0;
 steps_end = 2;
-last_valid_x = 0;
-last_valid_y = 0;
+last_valid_x = ((floor(x/16))*16);
+last_valid_y = ((floor(y/16))*16);
+xslide = 0;
+yslide = 0;
 
 //collision details
 adjacent = [];
@@ -39,6 +41,7 @@ walk_spr = lionk;
 push_spr = link_push;
 pushee=noone;
 lift_spr = link_carry;
+fall_spr = link_fall;
 action_a_spr = link_equip_action;
 action_b_spr = link_equip_action;
 equip_a = "sword";
@@ -49,6 +52,8 @@ mask_index=lionk;
 //physics flags
 move=true;
 lift=true;
+unsafe = false;
+airborn = false;
 cell_mod_x = 0;
 cell_mod_y = 0;
 closest_hole = noone;

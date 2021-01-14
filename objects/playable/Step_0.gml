@@ -11,8 +11,8 @@ var _mu = keyboard_check_pressed(vk_up) || keyboard_check_pressed(ord("W"));
 var _a = keyboard_check_pressed(ord("Z"));
 var _b = keyboard_check_pressed(ord("X"));
 var _pause = keyboard_check_pressed(vk_enter);
-var xslide=0;
-var yslide=0;
+xslide=0;
+yslide=0;
 
 //check for nearby holes
 closest_hole = instance_nth_nearest(x,y,hole,1);
@@ -24,14 +24,9 @@ if cell_mod_x <= 4 or cell_mod_x >= 12
 	x_edge = true;
 if cell_mod_y <= 4 or cell_mod_y >= 12
 	y_edge = true;
-if closest_hole != noone && point_distance(x,y,closest_hole.x+8,closest_hole.y+8) < 16 && (x_edge || y_edge){
-	//xslide = lengthdir_x(distance_to_object(closest_hole)/2,point_direction(x,y,closest_hole.x,closest_hole.y));
-	if x_edge {
-		xslide = sign(cell_mod_x-6)/2*-1;
-	}
-	if y_edge {
-		yslide = sign(cell_mod_y-6)/2*-1;		
-	}
+unsafe = false;
+if ((floor(x/16))*16) != last_valid_x || ((floor(y/16))*16) != last_valid_y{
+	unsafe = true;
 }
 
 //debug
@@ -118,9 +113,33 @@ if state == "idle"
 			if _a
 				sprite_index = action_a_spr;
 		}
-	} else if !_r && !_l && !_u && !_d {
-		x+= xslide;
-		y+= yslide;
+	} 
+	if unsafe {
+		if !airborn{
+		x = lerp(x,((floor(x/16))*16)+8,0.3);
+		y = lerp(y,((floor(y/16))*16)+8,0.3);
+		
+		if cell_mod_x > 5 && cell_mod_x < 11 && cell_mod_y > 5 && cell_mod_y < 11
+			state = "falling";
+			image_index = 0;
+			ani = 0;
+		}
+	}
+}
+
+if state == "falling" {
+	sprite_index = fall_spr;
+	ani +=1;
+	if ani == ani_spd {
+		ani = 0;
+		image_index += 1;
+		if image_index = 0 {
+			x = last_valid_x;
+			y = last_valid_y;
+			h -= 1;
+			state = "idle";
+			sprite_index = walk_spr;
+		}
 	}
 }
 
@@ -152,6 +171,18 @@ if state == "walking"
 		}
 		//check for collisions
 		adjacent = update_adjacents(adjacent);
+		//check for hazzards
+		if unsafe {
+		if !airborn{
+		x = lerp(x,((floor(x/16))*16)+8,0.3);
+		y = lerp(y,((floor(y/16))*16)+8,0.3);
+		
+		if cell_mod_x > 5 && cell_mod_x < 11 && cell_mod_y > 5 && cell_mod_y < 11
+			state = "falling";
+			image_index = 0;
+			ani = 0;
+		}
+	}
 	} 
 	#endregion
 	
@@ -362,4 +393,3 @@ if state == "swing_sword"
 	//do logic
 	
 }
-
