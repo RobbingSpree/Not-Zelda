@@ -173,14 +173,15 @@ if state == "walking"
 		adjacent = update_adjacents(adjacent);
 		//check for hazzards
 		if unsafe {
-		if !airborn{
-		x = lerp(x,((floor(x/16))*16)+8,0.3);
-		y = lerp(y,((floor(y/16))*16)+8,0.3);
+		if !airborn && position_meeting(x,y,hole) {
+			x = lerp(x,((floor(x/16))*16)+8,0.3);
+			y = lerp(y,((floor(y/16))*16)+8,0.3);
 		
-		if cell_mod_x > 5 && cell_mod_x < 11 && cell_mod_y > 5 && cell_mod_y < 11
-			state = "falling";
-			image_index = 0;
-			ani = 0;
+			if cell_mod_x > 5 && cell_mod_x < 11 && cell_mod_y > 5 && cell_mod_y < 11 {
+				state = "falling";
+				image_index = 0;
+				ani = 0;
+			}
 		}
 	}
 	} 
@@ -341,6 +342,13 @@ if state == "pushing"
 	} else {//keep arms and ears inside the vehicle while object is in motion
 		//move_towards_point(push_x_dest,push_y_dest,wlk_spd/2);
 		sliding(self,wlk_spd/2);
+		//update last valid square
+		var next_valid_x = ((floor(x/16))*16);
+		var next_valid_y = ((floor(y/16))*16);
+		if !position_meeting(next_valid_x,next_valid_y,hole) { //check if next cell has a hazzard in it
+			last_valid_x = next_valid_x;
+			last_valid_y = next_valid_y;
+		}
 		if pushee != noone
 			with pushee
 			{
