@@ -4,12 +4,15 @@ var _l = keyboard_check(vk_left) || keyboard_check(ord("A"));
 var _r = keyboard_check(vk_right) || keyboard_check(ord("D"));
 var _d = keyboard_check(vk_down) || keyboard_check(ord("S"));
 var _u = keyboard_check(vk_up) || keyboard_check(ord("W"));
+//menu input
 var _ml = keyboard_check_pressed(vk_left) || keyboard_check_pressed(ord("A"));
 var _mr = keyboard_check_pressed(vk_right) || keyboard_check_pressed(ord("D"));
 var _md = keyboard_check_pressed(vk_down) || keyboard_check_pressed(ord("S"));
 var _mu = keyboard_check_pressed(vk_up) || keyboard_check_pressed(ord("W"));
+//action input
 var _a = keyboard_check_pressed(ord("Z"));
 var _b = keyboard_check_pressed(ord("X"));
+//pause button
 var _pause = keyboard_check_pressed(vk_enter);
 xslide=0;
 yslide=0;
