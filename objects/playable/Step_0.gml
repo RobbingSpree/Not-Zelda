@@ -14,6 +14,9 @@ var _a = keyboard_check_pressed(ord("Z"));
 var _b = keyboard_check_pressed(ord("X"));
 //pause button
 var _pause = keyboard_check_pressed(vk_enter);
+//debug toggle
+debug_flag = (keyboard_check_pressed(vk_escape) ? !debug_flag : debug_flag);
+if keyboard_check_pressed(vk_backspace) room_restart();
 xslide=0;
 yslide=0;
 

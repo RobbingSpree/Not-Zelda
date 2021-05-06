@@ -68,3 +68,4 @@ for (var i=0; i<4; i++)
 
 //debug
 draw_set_font(defont);
+debug_flag = false;
