@@ -83,9 +83,10 @@
   "layers": [
     {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"9455313d-f94d-4302-9d5a-d2b323f4209a","tags":[],"resourceType":"GMImageLayer",},
   ],
+  "nineSlice": null,
   "parent": {
     "name": "naru",
-    "path": "folders/Sprites/playersd/naru.yy",
+    "path": "folders/Sprites/players/first wave/naru.yy",
   },
   "resourceVersion": "1.0",
   "name": "naru_fall",

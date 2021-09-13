@@ -87,9 +87,10 @@
   "layers": [
     {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"b9bba358-8ecc-46c4-a708-b9acd83f7265","tags":[],"resourceType":"GMImageLayer",},
   ],
+  "nineSlice": null,
   "parent": {
     "name": "link",
-    "path": "folders/Sprites/playersd/link.yy",
+    "path": "folders/Sprites/players/first wave/link.yy",
   },
   "resourceVersion": "1.0",
   "name": "link_equip_action",

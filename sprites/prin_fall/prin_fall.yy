@@ -83,9 +83,10 @@
   "layers": [
     {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"e36900ad-ccbf-48ab-86ba-e4a66e205893","tags":[],"resourceType":"GMImageLayer",},
   ],
+  "nineSlice": null,
   "parent": {
     "name": "zelda",
-    "path": "folders/Sprites/playersd/zelda.yy",
+    "path": "folders/Sprites/players/first wave/zelda.yy",
   },
   "resourceVersion": "1.0",
   "name": "prin_fall",

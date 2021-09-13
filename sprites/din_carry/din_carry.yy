@@ -79,9 +79,10 @@
   "layers": [
     {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"c48b0b31-dc04-47cc-af4a-01938eb41cb8","tags":[],"resourceType":"GMImageLayer",},
   ],
+  "nineSlice": null,
   "parent": {
     "name": "din",
-    "path": "folders/Sprites/playersd/din.yy",
+    "path": "folders/Sprites/players/first wave/din.yy",
   },
   "resourceVersion": "1.0",
   "name": "din_carry",

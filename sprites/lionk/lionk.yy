@@ -82,7 +82,7 @@
   "nineSlice": null,
   "parent": {
     "name": "link",
-    "path": "folders/Sprites/playersd/link.yy",
+    "path": "folders/Sprites/players/first wave/link.yy",
   },
   "resourceVersion": "1.0",
   "name": "lionk",

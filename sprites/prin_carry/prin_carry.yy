@@ -79,9 +79,10 @@
   "layers": [
     {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"7a6b6157-b8c4-4a65-8647-0ef1081321c5","tags":[],"resourceType":"GMImageLayer",},
   ],
+  "nineSlice": null,
   "parent": {
     "name": "zelda",
-    "path": "folders/Sprites/playersd/zelda.yy",
+    "path": "folders/Sprites/players/first wave/zelda.yy",
   },
   "resourceVersion": "1.0",
   "name": "prin_carry",

@@ -15,7 +15,7 @@ function item_use(item_, player) {
 
 	if item_ == item.glove
 	{
-		player.state = "pickup";
+		player.state = "lifting";
 		return;
 	}
 

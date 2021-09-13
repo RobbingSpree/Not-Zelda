@@ -103,9 +103,10 @@
   "layers": [
     {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"ab9621ff-88d4-4c5c-8f75-b4c9dc8557b8","tags":[],"resourceType":"GMImageLayer",},
   ],
+  "nineSlice": null,
   "parent": {
     "name": "link",
-    "path": "folders/Sprites/playersd/link.yy",
+    "path": "folders/Sprites/players/first wave/link.yy",
   },
   "resourceVersion": "1.0",
   "name": "link_push",

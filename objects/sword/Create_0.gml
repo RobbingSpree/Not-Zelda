@@ -10,3 +10,4 @@ action_b_spr = link_fall;
 
 equip_a = "sword";
 equip_b = "glove";
+

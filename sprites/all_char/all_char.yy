@@ -84,9 +84,10 @@
     {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"7e9cbdfb-e106-4da7-83c2-4aa1b054b1ff","tags":[],"resourceType":"GMImageLayer",},
     {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"4643bc40-3c84-4aa6-b940-80f9bad6872e","tags":[],"resourceType":"GMImageLayer",},
   ],
+  "nineSlice": null,
   "parent": {
-    "name": "playersd",
-    "path": "folders/Sprites/playersd.yy",
+    "name": "players",
+    "path": "folders/Sprites/players.yy",
   },
   "resourceVersion": "1.0",
   "name": "all_char",

@@ -79,9 +79,10 @@
   "layers": [
     {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"81b74c60-4fc5-4969-aebe-1c476d827b2a","tags":[],"resourceType":"GMImageLayer",},
   ],
+  "nineSlice": null,
   "parent": {
     "name": "naru",
-    "path": "folders/Sprites/playersd/naru.yy",
+    "path": "folders/Sprites/players/first wave/naru.yy",
   },
   "resourceVersion": "1.0",
   "name": "naru_carry",

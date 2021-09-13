@@ -99,9 +99,10 @@
   "layers": [
     {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"288880b6-72d9-4df6-97ef-baf9e40aa584","tags":[],"resourceType":"GMImageLayer",},
   ],
+  "nineSlice": null,
   "parent": {
     "name": "zelda",
-    "path": "folders/Sprites/playersd/zelda.yy",
+    "path": "folders/Sprites/players/first wave/zelda.yy",
   },
   "resourceVersion": "1.0",
   "name": "zorlda",

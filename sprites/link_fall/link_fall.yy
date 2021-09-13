@@ -79,9 +79,10 @@
   "layers": [
     {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"4e6ac848-785a-4762-9262-3cd5d5c0964b","tags":[],"resourceType":"GMImageLayer",},
   ],
+  "nineSlice": null,
   "parent": {
     "name": "link",
-    "path": "folders/Sprites/playersd/link.yy",
+    "path": "folders/Sprites/players/first wave/link.yy",
   },
   "resourceVersion": "1.0",
   "name": "link_fall",
