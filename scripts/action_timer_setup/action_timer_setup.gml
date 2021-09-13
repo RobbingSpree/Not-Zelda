@@ -3,8 +3,9 @@ function action_timer_setup() {
 	//these numbers are the minimum time needed for each action
 	action_timers[item.none] = 0;
 	action_timers[item.sword] = 8;
-	action_timers[item.power_b] = 8;
-
-
-
+	action_timers[item.glove] = 8;
+	action_timers[item.jump] = 8;
+	action_timers[item.dance] = 8;
+	action_timers[item.magic] = 8;
+	action_timers[item.thrumaturgy] = 8;
 }

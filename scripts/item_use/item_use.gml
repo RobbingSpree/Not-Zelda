@@ -13,7 +13,7 @@ function item_use(item_, player) {
 		return;
 	}
 
-	if item_ == item.power_b
+	if item_ == item.glove
 	{
 		player.state = "pickup";
 		return;

@@ -33,7 +33,6 @@ yslide = 0;
 adjacent = [];
 push_x_dest=-1;
 push_y_dest=-1;
-lifting=noone;
 //tilemap = layer_tilemap_get_id("Ground_details");
 
 //animation defaults
@@ -41,11 +40,14 @@ walk_spr = lionk;
 push_spr = link_push;
 pushee=noone;
 lift_spr = link_carry;
+liftee=noone;
 fall_spr = link_fall;
 action_a_spr = link_equip_action;
 action_b_spr = link_equip_action;
 equip_a = "sword";
 equip_b = "sword";
+action_timers = [];
+action_timer_setup();
 
 mask_index=lionk;
 
@@ -59,11 +61,16 @@ cell_mod_y = 0;
 closest_hole = noone;
 
 //set up adjacency tabel
+enum adj {
+	flag,
+	whois,
+	dist
+}
 for (var i=0; i<4; i++)
 {
-	adjacent[i,0]=false; // is something within 16 pixles of the player
-	adjacent[i,1]=noone; // what instance is it
-	adjacent[i,2]=-1; //distance to that object or -1
+	adjacent[i,adj.flag]=false; // is something within 16 pixles of the player
+	adjacent[i,adj.whois]=noone; // what instance is it
+	adjacent[i,adj.dist]=-1; //distance to that object or -1
 }	
 
 //debug

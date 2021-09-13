@@ -16,7 +16,7 @@ for (var j=0; j<8; j++)
 		i[j,k] = item.none;
 	}
 i[0,0]=item.sword;
-i[0,1]=item.power_b;
+i[0,1]=item.glove;
 
 e = []; //what's equipped to all characters
 for (var j=0; j<4; j++)
@@ -25,11 +25,15 @@ for (var j=0; j<4; j++)
 		e[j,k] = item.none;
 	}
 e[0,0]=item.sword;
-e[0,1]=item.power_b;
+e[0,1]=item.glove;
 
 enum item 
 {
 	none,
 	sword,
-	power_b
+	glove,
+	jump,
+	dance,
+	magic,
+	thrumaturgy
 }

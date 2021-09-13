@@ -6,6 +6,9 @@ if debug_flag {
 	draw_set_color(-1);
 }
 draw_self();
+if liftee != noone {
+	draw_sprite(liftee.sprite_index,liftee.image_index,x,y-unit);
+}
 
 /*
 if state == "action"
@@ -33,8 +36,7 @@ if debug_flag {
 	draw_set_color(c_white);
 	
 	
-	if state == "pushing"
-	{
+	if state == "pushing" {
 		draw_text(x-50,y-80,push_x_dest);
 		draw_text(x-30,y-80,x);
 		draw_text(x-50,y-70,push_y_dest);
@@ -44,18 +46,19 @@ if debug_flag {
 		draw_set_color(c_white);
 	}
 	
+	if state == "lifting" {
+		draw_text(x-50,y-80,action_comedown);
+	}
 	
-	//collision debug
 	
-	
+	//collision debug	
 	var offset = 8;
 	draw_text(x-offset,y,adjacent[3,2]);
 	draw_text(x+offset,y,adjacent[2,2]);
 	draw_text(x,y-offset,adjacent[1,2]);
 	draw_text(x,y,adjacent[0,2]);
 	
-	for (i=0; i<4; i++)
-	{
+	for (i=0; i<4; i++) {
 		if adjacent[i,1] != noone
 			draw_line(x,y,adjacent[i,1].x,adjacent[i,1].y);
 	}

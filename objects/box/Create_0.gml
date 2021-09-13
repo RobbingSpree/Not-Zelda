@@ -4,6 +4,7 @@ move=true;
 lift=true;
 lifted = false;
 in_use=false;
+breaks = false;
 
 push_x_dest=-1;
 push_y_dest=-1;

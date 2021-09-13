@@ -7,3 +7,6 @@ push_spr = din_push;
 lift_spr = din_carry;
 action_a_spr = din_fall;
 action_b_spr = din_fall;
+
+equip_a = "dance";
+equip_b = "jump";

@@ -15,6 +15,7 @@ var _b = keyboard_check_pressed(ord("X"));
 //pause button
 var _pause = keyboard_check_pressed(vk_enter);
 //debug toggle
+var _debug = keyboard_check_pressed(vk_control);
 debug_flag = (keyboard_check_pressed(vk_escape) ? !debug_flag : debug_flag);
 if keyboard_check_pressed(vk_backspace) room_restart();
 xslide=0;
@@ -111,41 +112,30 @@ if state == "idle"
 		camera_move = false;
 		if _r || _l || _u || _d //read input
 			state = "walking";
-		if _a || _b	
-		{
+		if _a || _b {
 			state = "action";
 			if _b
 				sprite_index = action_b_spr;
 			if _a
 				sprite_index = action_a_spr;
 		}
-	} 
-	if unsafe {
-		if !airborn{
-		x = lerp(x,((floor(x/16))*16)+8,0.3);
-		y = lerp(y,((floor(y/16))*16)+8,0.3);
-		
-		if cell_mod_x > 5 && cell_mod_x < 11 && cell_mod_y > 5 && cell_mod_y < 11
-			state = "falling";
-			image_index = 0;
-			ani = 0;
+		if _debug {
+			state = "lifting";
 		}
-	}
+		
+	} 
+	if unsafe && !airborn
+		unsafe_slide();
 }
 
 if state == "falling" {
 	sprite_index = fall_spr;
 	ani +=1;
+	x = lerp(x,x-cell_mod_x+sprite_get_xoffset(walk_spr),0.05);
+	y = lerp(y,y-cell_mod_y+sprite_get_yoffset(walk_spr),0.05);
 	if ani == ani_spd {
 		ani = 0;
 		image_index += 1;
-		if image_index = 0 {
-			x = last_valid_x;
-			y = last_valid_y;
-			h -= 1;
-			state = "idle";
-			sprite_index = walk_spr;
-		}
 	}
 }
 
@@ -178,19 +168,25 @@ if state == "walking"
 		//check for collisions
 		adjacent = update_adjacents(adjacent);
 		//check for hazzards
-		if unsafe {
-		if !airborn && position_meeting(x,y,hole) {
-			x = lerp(x,((floor(x/16))*16)+8,0.3);
-			y = lerp(y,((floor(y/16))*16)+8,0.3);
-		
-			if cell_mod_x > 5 && cell_mod_x < 11 && cell_mod_y > 5 && cell_mod_y < 11 {
-				state = "falling";
-				image_index = 0;
-				ani = 0;
-			}
+		if unsafe && !airborn
+			unsafe_slide();
+	} 
+	if _a || _b { //read action input
+		state = "action";
+		ani = 0;
+		if _a 
+			sprite_index = action_a_spr;
+		if _b	
+			sprite_index = action_b_spr;
+	}
+	if _debug {
+		if liftee == noone 
+			state = "lifting";
+		else {
+			throw_object(liftee,facing,x,y);
+			liftee = noone;
 		}
 	}
-	} 
 	#endregion
 	
 	#region Sprite update
@@ -382,17 +378,36 @@ if state == "pushing"
 	}
 }
 
-if state == "pickup"
+if state == "lifting"
 {
 	//check is animation is over
 	action_comedown++;
-	if action_comedown>=action_timers[item.power_b]
+	if action_comedown>=action_timers[item.glove]
 	{
 		state = "idle";
 		action_comedown=0;
 	}
-	//do logic
+	//attempt to pickup
+	if adjacent[facing,adj.flag] && adjacent[facing,adj.dist] < 4 {
+		if adjacent[facing,adj.whois].lift { //can be lifted
+			//lift object
+			liftee = adjacent[facing,adj.whois];
+			//hide lifted object offscreen
+			liftee.x = -1000
+			liftee.y = -1000
+		} else {
+			state = "idle";
+			action_comedown  = 0;
+		}
+	} else { 
+		state = "idle";
+		action_comedown  = 0;
+	}
+	state = "idle";
+	action_comedown  = 0;
+	ani = 0;
 	
+	//return to walking with lift flag on
 }
 
 if state == "swing_sword"
