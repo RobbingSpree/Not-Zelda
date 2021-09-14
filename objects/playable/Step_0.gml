@@ -23,16 +23,18 @@ yslide=0;
 
 //check for nearby holes
 closest_hole = instance_nth_nearest(x,y,hole,1);
-cell_mod_x = x mod 16;
-cell_mod_y = y mod 16;
+cell_mod_x = x mod unit;
+cell_mod_y = y mod unit;
 var x_edge = false;
 var y_edge = false;
-if cell_mod_x <= 4 or cell_mod_x >= 12
+if cell_mod_x <= unit/4 or cell_mod_x >= unit/4*3
 	x_edge = true;
-if cell_mod_y <= 4 or cell_mod_y >= 12
+if cell_mod_y <= unit/4 or cell_mod_y >= unit/4*3
 	y_edge = true;
 unsafe = false;
-if ((floor(x/16))*16) != last_valid_x || ((floor(y/16))*16) != last_valid_y{
+var value_x = (floor(x/unit))*unit;
+var value_y = (floor(y/unit))*unit;
+if ((floor(x/unit))*unit) != last_valid_x || ((floor(y/unit))*unit) != last_valid_y{
 	unsafe = true;
 }
 
@@ -41,7 +43,7 @@ if control_lock > 0
 	control_lock -=1;
 	if camera_move
 	{
-		var _spd = 0.5;
+		var _spd = wlk_spd/2;
 		switch facing
 		{
 			case d.down: y+=_spd; break;
@@ -230,8 +232,8 @@ if state == "walking"
 		
 	if can_move{
 		//update last valid square
-		var next_valid_x = ((floor(x/16))*16);
-		var next_valid_y = ((floor(y/16))*16);
+		var next_valid_x = ((floor(x/unit))*unit);
+		var next_valid_y = ((floor(y/unit))*unit);
 		if !position_meeting(next_valid_x,next_valid_y,hole) { //check if next cell has a hazzard in it
 			last_valid_x = next_valid_x;
 			last_valid_y = next_valid_y;
@@ -284,8 +286,8 @@ if state == "pushing"
 	} else {//keep arms and ears inside the vehicle while object is in motion
 		sliding(self,wlk_spd/2);
 		//update last valid square
-		var next_valid_x = ((floor(x/16))*16);
-		var next_valid_y = ((floor(y/16))*16);
+		var next_valid_x = ((floor(x/unit))*unit);
+		var next_valid_y = ((floor(y/unit))*unit);
 		if !position_meeting(next_valid_x,next_valid_y,hole) { //check if next cell has a hazzard in it
 			last_valid_x = next_valid_x;
 			last_valid_y = next_valid_y;

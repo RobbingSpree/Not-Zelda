@@ -1,9 +1,9 @@
 function update_state(playing) {
 
 	sword.state="absent";
-	dancer.state="absent";
-	singer.state="absent";
-	princess.state="absent";
+	//dancer.state="absent";
+	//singer.state="absent";
+	//princess.state="absent";
 
 	playing.state="idle";
 

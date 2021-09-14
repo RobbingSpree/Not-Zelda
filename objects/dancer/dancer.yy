@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "din_d",
-    "path": "sprites/din_d/din_d.yy",
+    "name": "all_char_v2",
+    "path": "sprites/all_char_v2/all_char_v2.yy",
   },
   "solid": true,
   "visible": true,

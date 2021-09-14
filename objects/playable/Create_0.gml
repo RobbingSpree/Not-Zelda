@@ -2,29 +2,36 @@
 player_index=0;
 image_speed=0;
 state="idle";
-h=11;
-unit = 16;
-max_h=12;
+h=11; //current health
+unit = 108; //distance unit used in programming
+max_h=12;//max health 4 points per heart
 
 //animation variables
-wlk_spd=1;
-wlk_cycle=1;
+wlk_spd=4; //pixles per frame moved while moving
 facing=0; //facing 0down 1up 2left 3right
-last_face=0;
-ani=0;
-ani_spd=15;
-action_buildup = 0;
-action_threshold = 15;
+last_face=0; //direction faces last frame
+ani=0; //animation slowdown feature
+ani_spd=15; //frames per animation index advancement
+action_buildup = 0; //used for walking to push and opening locked doors
+action_threshold = 15; //threshold above variable is compaired against currently equals 0.25 seconds
 action_comedown = 0;
 action_timers=[];
 action_timer_setup();
+
+
+//debug 
+if room == Room0 {
+	image_xscale = 0.15
+	image_yscale = 0.15
+	wlk_spd = 1;
+}
 
 //action variables
 control_lock = 0;
 camera_move = true;
 steps=0;
-last_valid_x = ((floor(x/16))*16);
-last_valid_y = ((floor(y/16))*16);
+last_valid_x = ((floor(x/unit))*unit);
+last_valid_y = ((floor(y/unit))*unit);
 xslide = 0;
 yslide = 0;
 

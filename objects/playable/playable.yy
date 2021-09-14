@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "lionk_r",
-    "path": "sprites/lionk_r/lionk_r.yy",
+    "name": "all_char_v2",
+    "path": "sprites/all_char_v2/all_char_v2.yy",
   },
   "solid": false,
   "visible": true,

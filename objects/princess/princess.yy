@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "zorlda_d",
-    "path": "sprites/zorlda_d/zorlda_d.yy",
+    "name": "all_char_v2",
+    "path": "sprites/all_char_v2/all_char_v2.yy",
   },
   "solid": false,
   "visible": true,

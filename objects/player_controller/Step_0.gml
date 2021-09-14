@@ -8,8 +8,8 @@ if first_frame
 	y=(players[target,0].y div camera_get_view_height(view_camera[0]))*camera_get_view_height(view_camera[0]);
 	first_frame=false;
 }
-
-if change  && players[target,0].state == "idle"
+//change focus character and move camera to follow
+if change && players[target,0].state == "idle"
 {
 	for (var i=0; i<4; i++)
 	{

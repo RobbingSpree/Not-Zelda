@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "lionk_r",
-    "path": "sprites/lionk_r/lionk_r.yy",
+    "name": "bread_walk_d",
+    "path": "sprites/bread_walk_d/bread_walk_d.yy",
   },
   "solid": false,
   "visible": true,

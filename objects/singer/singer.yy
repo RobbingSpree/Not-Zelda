@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "naru_d",
-    "path": "sprites/naru_d/naru_d.yy",
+    "name": "bread_walk_d",
+    "path": "sprites/bread_walk_d/bread_walk_d.yy",
   },
   "solid": false,
   "visible": true,
