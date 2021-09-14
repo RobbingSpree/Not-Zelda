@@ -12,9 +12,9 @@ inside = noone;
 
 switch index
 {
-	case 1: inside = all_char; image_index = 0; break;
-	case 2: inside = naru; break;
-	case 3: inside = din; break;
-	case 4: inside = zorlda; break;
+	case 1: inside = all_char; image_index = 0; break; //sword
+	case 2: inside = all_char; image_index = 2; break; //singer
+	case 3: inside = all_char; image_index = 1; break; //dancer
+	case 4: inside = all_char; image_index = 3; break; //princess
 }
 	

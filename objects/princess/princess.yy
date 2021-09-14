@@ -1,11 +1,14 @@
 {
   "spriteId": {
-    "name": "zorlda",
-    "path": "sprites/zorlda/zorlda.yy",
+    "name": "zorlda_d",
+    "path": "sprites/zorlda_d/zorlda_d.yy",
   },
   "solid": false,
   "visible": true,
-  "spriteMaskId": null,
+  "spriteMaskId": {
+    "name": "all_char",
+    "path": "sprites/all_char/all_char.yy",
+  },
   "persistent": false,
   "parentObjectId": {
     "name": "playable",

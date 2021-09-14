@@ -1,11 +1,14 @@
 {
   "spriteId": {
-    "name": "din",
-    "path": "sprites/din/din.yy",
+    "name": "din_d",
+    "path": "sprites/din_d/din_d.yy",
   },
   "solid": true,
   "visible": true,
-  "spriteMaskId": null,
+  "spriteMaskId": {
+    "name": "all_char",
+    "path": "sprites/all_char/all_char.yy",
+  },
   "persistent": false,
   "parentObjectId": {
     "name": "playable",

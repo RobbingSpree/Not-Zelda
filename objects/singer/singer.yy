@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "naru",
-    "path": "sprites/naru/naru.yy",
+    "name": "naru_d",
+    "path": "sprites/naru_d/naru_d.yy",
   },
   "solid": false,
   "visible": true,
