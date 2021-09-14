@@ -1,10 +1,10 @@
 /// @description update state and move character
-
+//movement input
 var _l = keyboard_check(vk_left) || keyboard_check(ord("A"));
 var _r = keyboard_check(vk_right) || keyboard_check(ord("D"));
 var _d = keyboard_check(vk_down) || keyboard_check(ord("S"));
 var _u = keyboard_check(vk_up) || keyboard_check(ord("W"));
-//menu input
+//menu input //menu input looks for key presses rather then direction held
 var _ml = keyboard_check_pressed(vk_left) || keyboard_check_pressed(ord("A"));
 var _mr = keyboard_check_pressed(vk_right) || keyboard_check_pressed(ord("D"));
 var _md = keyboard_check_pressed(vk_down) || keyboard_check_pressed(ord("S"));
@@ -36,9 +36,6 @@ if ((floor(x/16))*16) != last_valid_x || ((floor(y/16))*16) != last_valid_y{
 	unsafe = true;
 }
 
-//debug
-//if keyboard_check_pressed(vk_control) slide_object(self,facing);
-
 if control_lock > 0
 {
 	control_lock -=1;
@@ -47,10 +44,10 @@ if control_lock > 0
 		var _spd = 0.5;
 		switch facing
 		{
-			case 0: y+=_spd; break;
-			case 1: y-=_spd; break;
-			case 2: x+=_spd; break;
-			case 3: x-=_spd; break;
+			case d.down: y+=_spd; break;
+			case d.up: y-=_spd; break;
+			case d.right: x+=_spd; break;
+			case d.left: x-=_spd; break;
 		}
 	}
 }
@@ -113,16 +110,11 @@ if state == "idle"
 		if _r || _l || _u || _d //read input
 			state = "walking";
 		if _a || _b {
-			state = "action";
-			if _b
-				sprite_index = action_b_spr;
-			if _a
-				sprite_index = action_a_spr;
-		}
-		if _debug {
-			state = "lifting";
-		}
-		
+			if _a && equip_a != "empty"
+				state = "action";
+			if _b && equip_b != "empty"
+				state = "action";
+		}		
 	} 
 	if unsafe && !airborn
 		unsafe_slide();
@@ -131,19 +123,18 @@ if state == "idle"
 if state == "falling" {
 	sprite_index = fall_spr;
 	ani +=1;
-	x = lerp(x,x-cell_mod_x+sprite_get_xoffset(walk_spr),0.05);
-	y = lerp(y,y-cell_mod_y+sprite_get_yoffset(walk_spr),0.05);
+	x = lerp(x,x-cell_mod_x+sprite_get_xoffset(walk_spr[facing]),0.05);
+	y = lerp(y,y-cell_mod_y+sprite_get_yoffset(walk_spr[facing]),0.05);
 	if ani == ani_spd {
 		ani = 0;
 		image_index += 1;
 	}
 }
 
-
 if state == "walking"
 {
 	state = "idle";
-	sprite_index = walk_spr;
+	sprite_index = walk_spr[facing];
 	
 	#region Input
 	if _r || _l || _u || _d //read input
@@ -153,31 +144,24 @@ if state == "walking"
 		if ani == ani_spd //allow game to run at a higher speed than the animation
 		{
 			//update animation
-			if facing >=2 //left or right
-				if wlk_cycle==0
-					wlk_cycle=1;
-				else
-					wlk_cycle=0;
-			else //up or down
-				if image_xscale==1
-					image_xscale=-1;
-				else
-					image_xscale=1;
+			image_index+=1;
 			ani=0;
 		}
-		//check for collisions
+		//check for nearby objects
 		adjacent = update_adjacents(adjacent);
 		//check for hazzards
 		if unsafe && !airborn
 			unsafe_slide();
 	} 
-	if _a || _b { //read action input
-		state = "action";
-		ani = 0;
-		if _a 
-			sprite_index = action_a_spr;
-		if _b	
-			sprite_index = action_b_spr;
+	if _a || _b {
+			if _a && equip_a != "empty" {
+				state = "action";
+				ani = 0;
+			}
+			if _b && equip_b != "empty" {
+				state = "action";
+				ani = 0;
+			}
 	}
 	if _debug {
 		if liftee == noone 
@@ -188,58 +172,32 @@ if state == "walking"
 		}
 	}
 	#endregion
-	
-	#region Sprite update
-	if facing != last_face
-	{
-		image_xscale=1;
-		wlk_cycle=0;
-	}
+
+	#region facing update
 
 	if _l || _r 
 	{
 		facing=3-_r;
-		if !_u && !_d
-			image_index=facing+wlk_cycle-_l;
-		if _r
-			image_xscale=-1;
-		if _l
-			image_xscale=1;
 	}
 	if _u || _d 
 	{
 		facing=1-_d;	
-		image_index=facing;
 	}
 	last_face=facing;
-
-	//check for collisions
-	
-	if state == "idle"
-	{
-		image_index=facing;
-	}
 	#endregion
 	
 	#region Start Pushing
 	var free = push_space_free(facing)
 	if action_buildup>action_threshold && free && state != "pushing"
 	{
-		if adjacent[facing,1] != noone && adjacent[facing,1].move==true //if running into a moveable object for last 16 frames
+		if adjacent[facing,adj.whois] != noone && adjacent[facing,adj.whois].move==true //if running into a moveable object for last 16 frames
 		{
 			slide_object(self,facing);
-			slide_object(adjacent[facing,1],facing);
-			pushee=adjacent[facing,1];
+			slide_object(adjacent[facing,adj.whois],facing);
+			pushee=adjacent[facing,adj.whois];
 			state = "pushing";
-			sprite_index = push_spr;
-		switch facing
-			{
-				case 0: image_index = 0; break;
-				case 1: image_index = 3; break;
-				case 2: image_index = 6; image_xscale=-1; break;
-				case 3: image_index = 6; image_xscale=1; break;
-			}
-		ani=0;
+			sprite_index = push_spr[facing];
+			ani=0;
 		} 
 		
 	}
@@ -248,17 +206,29 @@ if state == "walking"
 	#endregion
 	
 	#region Collision and movement
-	
-	if adjacent[facing,2] > wlk_spd || adjacent[facing,2] == -1//moving unimpeded
-	{
-		if facing < 2 && (_r || _l) //if moving diagonally
-			{if (adjacent[3,2] > wlk_spd && _l) || (adjacent[2,2] > wlk_spd && _r)
-				x+=(_r-_l)*wlk_spd+xslide;
-			} else 
-				x+=(_r-_l)*wlk_spd+xslide;
-		y+=(_d-_u)*wlk_spd+yslide;
+	var can_move = false;
+	if _d && (adjacent[d.down,adj.dist] == -1 || adjacent[d.down,adj.dist] > wlk_spd) {
+		can_move = true;
+		y+=(_d-_u)*wlk_spd;
 		action_buildup=0;
+	}
+	if _u && (adjacent[d.up,adj.dist] == -1 || adjacent[d.up,adj.dist] > wlk_spd) {
+		can_move = true;
+		y+=(_d-_u)*wlk_spd;
+		action_buildup=0;
+	}
+	if _r && (adjacent[d.right,adj.dist] == -1 || adjacent[d.right,adj.dist] > wlk_spd) {
+		can_move = true;
+		x+=(_r-_l)*wlk_spd;
+		action_buildup=0;
+	}
+	if _l && (adjacent[d.left,adj.dist] == -1 || adjacent[d.left,adj.dist] > wlk_spd) {
+		can_move = true;
+		x+=(_r-_l)*wlk_spd;
+		action_buildup=0;
+	}
 		
+	if can_move{
 		//update last valid square
 		var next_valid_x = ((floor(x/16))*16);
 		var next_valid_y = ((floor(y/16))*16);
@@ -276,57 +246,27 @@ if state == "walking"
 
 if state == "action"
 {
-	//end animation and move back to idle 
-	if steps == steps_end
-	{
-		state = "idle";
-		steps=0;
-		wlk_cycle=0;
-		sprite_index=walk_spr;
-		image_index=facing; 
-	}
-	
 	#region Animate
 	ani +=1;
 	if ani == ani_spd //allow game to run at a higher speed than the animation
 	{
 		steps+=1;
 		ani=0;
-		wlk_cycle+=1;
+		image_index++
 	}
 	if _b //prioritize B presses over A
 	{
-		if equip_b == "sword"
-		{
-			sprite_index=link_equip_action;
-			switch facing
-			{
-				case 0: image_index = 0+wlk_cycle; break;
-				case 1: image_index = 2+wlk_cycle; break;
-				case 2: image_index = 4+wlk_cycle; image_xscale=-1; break;
-				case 3: image_index = 4+wlk_cycle; image_xscale=1; break;
-			}
-		}
+		use_item(equip_b);
 	} else if _a
 	{
-		if equip_a == "sword"
-		{
-			sprite_index=link_equip_action;
-			switch facing
-			{
-				case 0: image_index = 0+steps; break;
-				case 1: image_index = 2+steps; break;
-				case 2: image_index = 4+steps; image_xscale=-1; break;
-				case 3: image_index = 4+steps; image_xscale=1; break;
-			}
-		}
+		use_item(equip_a);
 	}
 	#endregion
 }
 
 if state == "pushing"
 {
-	//you have arrived at your destination
+	//if you have arrived at your destination
 	if x==push_x_dest && y==push_y_dest
 	{
 		state = "idle";
@@ -338,11 +278,10 @@ if state == "pushing"
 			pushee.push_y_dest=-1;
 		}
 		action_buildup=0;
-		sprite_index = walk_spr;
-		image_index=facing;
+		sprite_index = walk_spr[facing];
+		image_index=0;
 		adjacent=update_adjacents(adjacent);
 	} else {//keep arms and ears inside the vehicle while object is in motion
-		//move_towards_point(push_x_dest,push_y_dest,wlk_spd/2);
 		sliding(self,wlk_spd/2);
 		//update last valid square
 		var next_valid_x = ((floor(x/16))*16);
@@ -356,37 +295,19 @@ if state == "pushing"
 			{
 				sliding(self,0.5);	
 			}
-		#region Animate
+		//apply animation
 		ani +=1;
 		if ani == ani_spd //allow game to run at a higher speed than the animation
 		{
-			//update animation
-			if wlk_cycle==0
-				wlk_cycle=1;
-			else
-				wlk_cycle=0;
-			switch facing
-			{
-				case 0: image_index = 0+wlk_cycle; break;
-				case 1: image_index = 3+wlk_cycle; break;
-				case 2: image_index = 6+wlk_cycle; image_xscale=-1; break;
-				case 3: image_index = 6+wlk_cycle; image_xscale=1; break;
-			}
+			image_index += 1;
 			ani=0;
 		}
-		#endregion
+
 	}
 }
 
 if state == "lifting"
 {
-	//check is animation is over
-	action_comedown++;
-	if action_comedown>=action_timers[item.glove]
-	{
-		state = "idle";
-		action_comedown=0;
-	}
 	//attempt to pickup
 	if adjacent[facing,adj.flag] && adjacent[facing,adj.dist] < 4 {
 		if adjacent[facing,adj.whois].lift { //can be lifted
@@ -410,15 +331,3 @@ if state == "lifting"
 	//return to walking with lift flag on
 }
 
-if state == "swing_sword"
-{
-	//check is animation is over
-	action_comedown++;
-	if action_comedown>=action_timers[item.sword]
-	{
-		state = "idle";
-		action_comedown=0;
-	}
-	//do logic
-	
-}

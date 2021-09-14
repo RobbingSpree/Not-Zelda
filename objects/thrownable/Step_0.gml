@@ -4,6 +4,13 @@ switch facing {
 	case 2: h_spd = spd; break;
 	case 3: h_spd = -spd; break;
 }
+/*
+directions
+0 down
+1 up
+2 right
+3 left
+*/
 
 if height > 0 {
 	x+=h_spd;

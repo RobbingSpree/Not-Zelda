@@ -23,7 +23,6 @@ action_timer_setup();
 control_lock = 0;
 camera_move = true;
 steps=0;
-steps_end = 2;
 last_valid_x = ((floor(x/16))*16);
 last_valid_y = ((floor(y/16))*16);
 xslide = 0;
@@ -36,20 +35,28 @@ push_y_dest=-1;
 //tilemap = layer_tilemap_get_id("Ground_details");
 
 //animation defaults
-walk_spr = lionk;
-push_spr = link_push;
+enum d {
+	down,
+	up,
+	right,
+	left
+}
+walk_spr = [lionk_d,lionk_u,lionk_r,lionk_l];
+push_spr = [link_push_d,link_push_u,link_push_r,link_push_l];
 pushee=noone;
-lift_spr = link_carry;
+lift_spr = [link_lift_d,link_lift_u,link_lift_r,link_lift_l];
+carry_spr = [link_carry_d,link_carry_u,link_carry_r,link_carry_l];
 liftee=noone;
 fall_spr = link_fall;
-action_a_spr = link_equip_action;
-action_b_spr = link_equip_action;
+item_swing_spr = [link_equip_action_d,link_equip_action_u,link_equip_action_r,link_equip_action_l];
+action_a_spr = item_swing_spr;
+action_b_spr = item_swing_spr;
 equip_a = "sword";
 equip_b = "sword";
 action_timers = [];
 action_timer_setup();
 
-mask_index=lionk;
+mask_index=all_char;
 
 //physics flags
 move=true;

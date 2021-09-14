@@ -12,7 +12,7 @@ inside = noone;
 
 switch index
 {
-	case 1: inside = lionk; break;
+	case 1: inside = all_char; image_index = 0; break;
 	case 2: inside = naru; break;
 	case 3: inside = din; break;
 	case 4: inside = zorlda; break;
