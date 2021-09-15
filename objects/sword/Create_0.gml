@@ -3,7 +3,7 @@ event_inherited();
 
 player_index=1;
 walk_spr = [bread_walk_d,bread_walk_u,bread_walk_r,bread_walk_l];
-push_spr = [link_push_d,link_push_u,link_push_r,link_push_l];
+push_spr = [generic_push_d,generic_push_u,generic_push_r,generic_push_l];
 lift_spr = [link_lift_d,link_lift_u,link_lift_r,link_lift_l];
 carry_spr = [link_carry_d,link_carry_u,link_carry_r,link_carry_l];
 fall_spr = link_fall;

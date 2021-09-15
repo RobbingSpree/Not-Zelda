@@ -32,8 +32,6 @@ if cell_mod_x <= unit/4 or cell_mod_x >= unit/4*3
 if cell_mod_y <= unit/4 or cell_mod_y >= unit/4*3
 	y_edge = true;
 unsafe = false;
-var value_x = (floor(x/unit))*unit;
-var value_y = (floor(y/unit))*unit;
 if ((floor(x/unit))*unit) != last_valid_x || ((floor(y/unit))*unit) != last_valid_y{
 	unsafe = true;
 }
@@ -199,6 +197,7 @@ if state == "walking"
 			pushee=adjacent[facing,adj.whois];
 			state = "pushing";
 			sprite_index = push_spr[facing];
+			image_index = 0;
 			ani=0;
 		} 
 		
@@ -209,24 +208,29 @@ if state == "walking"
 	
 	#region Collision and movement
 	var can_move = false;
+	var dist = wlk_spd;
 	if _d && (adjacent[d.down,adj.dist] == -1 || adjacent[d.down,adj.dist] > wlk_spd) {
 		can_move = true;
-		y+=(_d-_u)*wlk_spd;
+		dist = min(wlk_spd,adjacent[d.down,adj.dist]);
+		y+=(_d-_u)*dist;
 		action_buildup=0;
 	}
 	if _u && (adjacent[d.up,adj.dist] == -1 || adjacent[d.up,adj.dist] > wlk_spd) {
 		can_move = true;
-		y+=(_d-_u)*wlk_spd;
+		dist = min(wlk_spd,adjacent[d.up,adj.dist]);
+		y+=(_d-_u)*dist;
 		action_buildup=0;
 	}
 	if _r && (adjacent[d.right,adj.dist] == -1 || adjacent[d.right,adj.dist] > wlk_spd) {
 		can_move = true;
-		x+=(_r-_l)*wlk_spd;
+		dist = min(wlk_spd,adjacent[d.right,adj.dist]);
+		x+=(_r-_l)*dist;
 		action_buildup=0;
 	}
 	if _l && (adjacent[d.left,adj.dist] == -1 || adjacent[d.left,adj.dist] > wlk_spd) {
 		can_move = true;
-		x+=(_r-_l)*wlk_spd;
+		dist = min(wlk_spd,adjacent[d.left,adj.dist]);
+		x+=(_r-_l)*dist;
 		action_buildup=0;
 	}
 		
@@ -292,11 +296,13 @@ if state == "pushing"
 			last_valid_x = next_valid_x;
 			last_valid_y = next_valid_y;
 		}
-		if pushee != noone
+		if pushee != noone {
+			var p_spd = wlk_spd/2
 			with pushee
 			{
-				sliding(self,0.5);	
+				sliding(self,p_spd);	
 			}
+		}
 		//apply animation
 		ani +=1;
 		if ani == ani_spd //allow game to run at a higher speed than the animation
@@ -333,3 +339,4 @@ if state == "lifting"
 	//return to walking with lift flag on
 }
 
+depth = -y;

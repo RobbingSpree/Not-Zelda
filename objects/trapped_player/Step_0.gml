@@ -1,5 +1,7 @@
 /// @description 
 
+event_inherited();
+
 hvr += dir;
 
 if dir < 0 && hvr < hvr_min //going down

@@ -81,8 +81,8 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "second_wave ",
-    "path": "folders/Sprites/players/second_wave .yy",
+    "name": "bread",
+    "path": "folders/Sprites/players/second_wave /bread.yy",
   },
   "resourceVersion": "1.0",
   "name": "bread_walk_l",

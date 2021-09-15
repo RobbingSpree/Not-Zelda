@@ -1,2 +1,3 @@
 //draw self
-draw_sprite(sprite_index,image_index,x,y-height);
+draw_sprite(parent.sprite_index,parent.image_index,x,y-height);
+

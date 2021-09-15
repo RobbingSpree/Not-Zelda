@@ -79,9 +79,10 @@
   "layers": [
     {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"Layer 1 (2)","resourceVersion":"1.0","name":"9ed8b721-ebe4-428f-94a2-1c72c8e90a26","tags":[],"resourceType":"GMImageLayer",},
   ],
+  "nineSlice": null,
   "parent": {
-    "name": "npcs",
-    "path": "folders/Sprites/npcs.yy",
+    "name": "objects",
+    "path": "folders/Sprites/objects.yy",
   },
   "resourceVersion": "1.0",
   "name": "farore",

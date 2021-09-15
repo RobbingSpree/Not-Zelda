@@ -8,6 +8,15 @@ if debug_flag {
 draw_self();
 if liftee != noone {
 	draw_sprite(liftee.sprite_index,liftee.image_index,x,y-unit);
+	var h_spd = 0;
+	var v_spd = 0;
+	switch facing {
+		case d.down:	v_spd = 1; break;
+		case d.up:		v_spd = -1; break;
+		case d.right:	h_spd = 1; break;
+		case d.left:	h_spd = -1; break;
+	}
+	draw_sprite(ground_target_spr,0,x+throw_dist*h_spd,y+throw_dist*v_spd);
 }
 
 /*
