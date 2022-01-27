@@ -3,7 +3,7 @@ player_index=0;
 image_speed=0;
 state="idle";
 h=11; //current health
-unit = 108; //distance unit used in programming
+unit = 16; //distance unit used in programming
 max_h=12;//max health 4 points per heart
 
 //animation variables
@@ -19,13 +19,6 @@ action_timers=[];
 action_timer_setup();
 
 depth = -y;
-
-//debug 
-if room == Room0 {
-	image_xscale = 0.15
-	image_yscale = 0.15
-	wlk_spd = 1;
-}
 
 //action variables
 control_lock = 0;
@@ -50,8 +43,8 @@ enum d {
 	right,
 	left
 }
-walk_spr = [bread_walk_d,bread_walk_u,bread_walk_r,bread_walk_l];
-push_spr = [generic_push_d,generic_push_u,generic_push_r,generic_push_l];
+walk_spr = [lionk_d,lionk_u,lionk_r,lionk_l];
+push_spr = [link_push_d,link_push_u,link_push_r,link_push_l];
 pushee=noone;
 lift_spr = [link_lift_d,link_lift_u,link_lift_r,link_lift_l];
 carry_spr = [link_carry_d,link_carry_u,link_carry_r,link_carry_l];

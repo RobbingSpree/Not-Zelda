@@ -1,6 +1,6 @@
 /// @description follow current player
 
-var change = keyboard_check_pressed(vk_space);
+var change = false; //keyboard_check_pressed(vk_space);
 
 if first_frame 
 {
