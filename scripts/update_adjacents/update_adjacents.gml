@@ -1,5 +1,4 @@
 function update_adjacents(nearbys) {
-	//var nearbys = argument0;
 
 	var dist = 8;//wlk_spd*3;
 
