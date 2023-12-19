@@ -32,8 +32,8 @@
   "properties": [],
   "solid": true,
   "spriteId": {
-    "name": "all_char_v2",
-    "path": "sprites/all_char_v2/all_char_v2.yy",
+    "name": "all_char",
+    "path": "sprites/all_char/all_char.yy",
   },
   "spriteMaskId": {
     "name": "all_char",

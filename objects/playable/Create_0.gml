@@ -7,7 +7,7 @@ unit = 16; //distance unit used in programming
 max_h=12;//max health 4 points per heart
 
 //animation variables
-wlk_spd=4; //pixles per frame moved while moving
+wlk_spd=1; //pixles per frame moved while moving
 facing=0; //facing 0down 1up 2left 3right
 last_face=0; //direction faces last frame
 ani=0; //animation slowdown feature

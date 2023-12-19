@@ -2,7 +2,7 @@
 event_inherited();
 
 player_index=2;
-walk_spr = [thistle_walk_d,thistle_walk_u,thistle_walk_r,thistle_walk_l];
+walk_spr = [din_d,din_u,din_r,din_l];
 push_spr = [din_push_d,din_push_u,din_push_r,din_push_l];
 lift_spr = [din_lift_d,din_lift_u,din_lift_r,din_lift_l];
 carry_spr = [din_carry_d,din_carry_u,din_carry_r,din_carry_l];

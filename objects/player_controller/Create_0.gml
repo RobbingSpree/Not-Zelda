@@ -9,10 +9,9 @@ update_state(sword);
 
 screen_w = 1080
 screen_h = 1080
-if room == Room0 {
-	screen_w = 160
-	screen_h = 160	
-}
+
+screen_w = 160
+screen_h = 160	
 
 target_x=0;
 target_y=0;
@@ -57,9 +56,8 @@ for (var xx = 0; xx < room_width; xx += grid_unit)
 */
 var lay_id = layer_get_id("Ground_details");
 var map_id = layer_tilemap_get_id(lay_id);
-var grid_unit = 108;
-if room == Room0
-	grid_unit = 16
+
+grid_unit = 16
 var has_adjacent = false;
 var strip_count = 0;
 var curr_tile, next_tile, strip_start_xx;

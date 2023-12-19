@@ -32,8 +32,8 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "bread_walk_d",
-    "path": "sprites/bread_walk_d/bread_walk_d.yy",
+    "name": "all_char",
+    "path": "sprites/all_char/all_char.yy",
   },
   "spriteMaskId": null,
   "visible": true,

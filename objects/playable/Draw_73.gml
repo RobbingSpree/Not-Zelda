@@ -1,9 +1,9 @@
 /// @description Draw the hearts UI
 
 var loops = 0;
-var xx = x-12*round(max_h/4);
+var xx = x-5*round(max_h/4);
 var yy = y-unit;
-var icon_w = 32;
+var icon_w = 10;
 if player_controller.target=player_index
 	for (var c_h = 0; c_h<max_h; c_h+=4;)
 	{
