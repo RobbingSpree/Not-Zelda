@@ -80,7 +80,28 @@ for (var i=0; i<4; i++)
 	adjacent[i,adj.flag]=false; // is something within 16 pixles of the player
 	adjacent[i,adj.whois]=noone; // what instance is it
 	adjacent[i,adj.dist]=-1; //distance to that object or -1
-}	
+}
+
+//controls
+//dpad
+_l = false;
+_r = false;
+_d = false;
+_u = false;
+
+//menu dpad
+_ml = false;
+_mr = false;
+_md = false;
+_mu = false;
+
+//action buttons
+_a = false;
+_b = false;
+
+//other buttons
+_pause = false;
+_debug = false;
 
 //debug
 draw_set_font(defont);
