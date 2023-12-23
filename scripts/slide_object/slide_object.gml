@@ -4,7 +4,7 @@ function slide_object(obj, dir) {
 	//var obj = argument0; //object to move
 	//var dir = argument1; //direction to move
 
-	var unit=108;
+	var unit=16;
 	var x_dir=0;
 	var y_dir=0;
 
