@@ -31,9 +31,9 @@ players[4,0]=princess;
 players[4,1]=false;
 players[4,2]=false;
 
-spd=108;
+spd=8;
 view_camera[0] = camera_create_view(0,0,screen_w,screen_h,0,-1,-1,-1,0,0);
-steps = 2;
+steps = 4;
 debug = steps;
 
 //setup collision based on tiles

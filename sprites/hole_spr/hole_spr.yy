@@ -2,9 +2,9 @@
   "resourceType": "GMSprite",
   "resourceVersion": "1.0",
   "name": "hole_spr",
-  "bbox_bottom": 107,
+  "bbox_bottom": 15,
   "bbox_left": 0,
-  "bbox_right": 107,
+  "bbox_right": 15,
   "bbox_top": 0,
   "bboxMode": 0,
   "collisionKind": 1,
@@ -17,7 +17,7 @@
   ],
   "gridX": 0,
   "gridY": 0,
-  "height": 108,
+  "height": 16,
   "HTile": false,
   "layers": [
     {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"46555c0c-bdee-4364-8794-2459abefc8f7","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
@@ -35,8 +35,8 @@
     ],
     "highlightColour": 1728023040,
     "highlightStyle": 1,
-    "left": 14,
-    "right": 14,
+    "left": 2,
+    "right": 2,
     "tileMode": [
       1,
       1,
@@ -93,5 +93,5 @@
   },
   "type": 0,
   "VTile": false,
-  "width": 108,
+  "width": 16,
 }

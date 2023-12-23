@@ -9,7 +9,10 @@
     "name": "Objects",
     "path": "folders/Objects.yy",
   },
-  "parentObjectId": null,
+  "parentObjectId": {
+    "name": "box",
+    "path": "objects/box/box.yy",
+  },
   "persistent": false,
   "physicsAngularDamping": 0.1,
   "physicsDensity": 0.5,
@@ -26,8 +29,8 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "jar_spr",
-    "path": "sprites/jar_spr/jar_spr.yy",
+    "name": "pot_spr",
+    "path": "sprites/pot_spr/pot_spr.yy",
   },
   "spriteMaskId": null,
   "visible": true,

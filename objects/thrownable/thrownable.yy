@@ -31,8 +31,8 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "throwables",
-    "path": "sprites/throwables/throwables.yy",
+    "name": "item_backup",
+    "path": "sprites/item_backup/item_backup.yy",
   },
   "spriteMaskId": null,
   "visible": true,

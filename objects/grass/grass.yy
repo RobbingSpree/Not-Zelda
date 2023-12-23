@@ -30,10 +30,7 @@
   "physicsStartAwake": true,
   "properties": [],
   "solid": false,
-  "spriteId": {
-    "name": "grass_spr",
-    "path": "sprites/grass_spr/grass_spr.yy",
-  },
+  "spriteId": null,
   "spriteMaskId": null,
   "visible": true,
 }

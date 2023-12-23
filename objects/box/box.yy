@@ -30,8 +30,8 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "throwables",
-    "path": "sprites/throwables/throwables.yy",
+    "name": "pot_spr",
+    "path": "sprites/pot_spr/pot_spr.yy",
   },
   "spriteMaskId": null,
   "visible": true,
