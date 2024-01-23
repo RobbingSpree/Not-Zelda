@@ -19,13 +19,6 @@ if liftee != noone {
 	draw_sprite(ground_target_spr,0,x+throw_dist*h_spd,y+throw_dist*v_spd);
 }
 
-/*
-if state == "action"
-{
-	draw_text(x,y-40,steps);
-}
-*/
-
 //debug
 var d_unit = 50;
 if debug_flag {
